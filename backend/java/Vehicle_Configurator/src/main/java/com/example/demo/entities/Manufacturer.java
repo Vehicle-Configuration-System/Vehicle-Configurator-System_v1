@@ -1,7 +1,6 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "manufacturer_master")
@@ -9,17 +8,33 @@ public class Manufacturer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "manufacturer_id")
     private int manufacturerId;
 
+    @Column(name = "manufacturer_name")
     private String manufacturerName;
 
-    @ManyToMany
-    @JoinTable(
-            name = "segment_manufacturer",
-            joinColumns = @JoinColumn(name = "manufacturer_id"),
-            inverseJoinColumns = @JoinColumn(name = "segment_id")
-    )
-    private List<Segment> segments;
+    public Manufacturer() {
+    }
 
-    // Getters and Setters
+    public Manufacturer(int manufacturerId, String manufacturerName) {
+        this.manufacturerId = manufacturerId;
+        this.manufacturerName = manufacturerName;
+    }
+
+    public int getManufacturerId() {
+        return manufacturerId;
+    }
+
+    public void setManufacturerId(int manufacturerId) {
+        this.manufacturerId = manufacturerId;
+    }
+
+    public String getManufacturerName() {
+        return manufacturerName;
+    }
+
+    public void setManufacturerName(String manufacturerName) {
+        this.manufacturerName = manufacturerName;
+    }
 }

@@ -3,12 +3,13 @@ package com.example.demo.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "segment_manufacturer")
-public class SegmentManufacturer {
+@Table(name = "seg_mfg_master")
+public class SegMfg {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "seg_mfg_id")
+    private int segMfgId;
 
     @ManyToOne
     @JoinColumn(name = "segment_id")
@@ -18,19 +19,21 @@ public class SegmentManufacturer {
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 
-    // Constructors
-
-    public SegmentManufacturer() {
+    public SegMfg() {
     }
 
-    // Getters and Setters
-
-    public int getId() {
-        return id;
+    public SegMfg(int segMfgId, Segment segment, Manufacturer manufacturer) {
+        this.segMfgId = segMfgId;
+        this.segment = segment;
+        this.manufacturer = manufacturer;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getSegMfgId() {
+        return segMfgId;
+    }
+
+    public void setSegMfgId(int segMfgId) {
+        this.segMfgId = segMfgId;
     }
 
     public Segment getSegment() {
