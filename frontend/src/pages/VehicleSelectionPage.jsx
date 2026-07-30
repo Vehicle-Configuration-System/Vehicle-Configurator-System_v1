@@ -5,7 +5,7 @@ function VehicleSelectionPage() {
 
     const [segments, setSegments] = useState([]);
     const [selectedSegment, setSelectedSegment] = useState("");
-
+const [quantity, setQuantity] = useState("");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     const [manufacturers, setManufacturers] = useState([]);
@@ -125,13 +125,13 @@ function handleNext() {
 
     }
 
-    // if (quantity === "") {
+    if (quantity === "") {
 
-    //     alert("Please enter Quantity");
+        alert("Please enter Quantity");
 
-    //     return;
+        return;
 
-    // }
+    }
 
     sessionStorage.setItem("segmentId", selectedSegment);
 
@@ -139,7 +139,7 @@ function handleNext() {
 
     sessionStorage.setItem("modelId", selectedModel);
 
-    //sessionStorage.setItem("quantity", quantity);
+    sessionStorage.setItem("quantity", quantity);
 
     navigate("/default-config");
 
@@ -308,11 +308,25 @@ onChange={(e) => {
 
         value={selectedModel}
 
-        onChange={(e) => {
+       onChange={(e) => {
 
-            setSelectedModel(e.target.value);
+    const modelId = e.target.value;
 
-        }}
+    setSelectedModel(modelId);
+
+    const vehicle = models.find(
+        model => model.modelId == modelId
+    );
+
+    if(vehicle){
+
+        setMinimumQuantity(vehicle.minimumQuantity);
+
+        setQuantity(vehicle.minimumQuantity);
+
+    }
+
+}}
 
         disabled={selectedManufacturer === ""}
 
@@ -345,6 +359,44 @@ onChange={(e) => {
         }
 
     </select>
+
+</div>
+
+<div className="mb-3">
+
+    <label className="form-label">
+
+        Quantity
+
+    </label>
+
+    <input
+
+        type="number"
+
+        className="form-control"
+
+        value={quantity}
+
+        min={minimumQuantity}
+
+        onChange={(e)=>setQuantity(e.target.value)}
+
+        disabled={selectedModel === ""}
+
+    />
+
+    {
+
+        selectedModel &&
+
+        <small className="text-muted">
+
+            Minimum Order Quantity : {minimumQuantity}
+
+        </small>
+
+    }
 
 </div>
 <div className="text-center mt-4">

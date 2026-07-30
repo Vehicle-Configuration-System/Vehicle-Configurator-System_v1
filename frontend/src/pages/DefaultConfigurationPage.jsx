@@ -1,12 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-
+import { useNavigate } from "react-router-dom";
 function DefaultConfigurationPage(){
-
+const navigate = useNavigate();
 
     const modelId = sessionStorage.getItem("modelId");
-
+    const quantity = sessionStorage.getItem("quantity");
 
 const [configuration, setConfiguration] = useState(null);
 
@@ -36,91 +35,148 @@ if (!configuration) {
     return <h2>Loading...</h2>;
 }
 
+const vehicle = configuration.vehicle;
 
+const standard = configuration.components.filter(
+    item => item.componentType === "C" || item.componentType === "S"
+);
+
+const interior = configuration.components.filter(
+    item => item.componentType === "I"
+);
+
+const exterior = configuration.components.filter(
+    item => item.componentType === "E"
+);
 
     // Taking vehicle details from first record
+const basePrice = vehicle.basePrice;
 
-    const vehicle = configuration.vehicle;
+const qty = Number(quantity);
 
+const totalPrice = basePrice * qty;
 
+const gst = totalPrice * 0.10;
 
-    return (
+const grandTotal = totalPrice + gst;
+  return (
 
-        <div>
+<div className="container">
 
+    <h1>Default Configuration</h1>
 
-            <h1>
-                Default Configuration
-            </h1>
+    <div className="vehicle-container">
 
+        <div className="vehicle-info">
 
+            <h2>{vehicle.modelName}</h2>
+
+            <p>
+                <strong>Manufacturer :</strong>{" "}
+                {vehicle.manufacturer}
+            </p>
+
+            <p>
+                <strong>Segment :</strong>{" "}
+                {vehicle.segment}
+            </p>
+
+            <p>
+                <strong>Base Price :</strong>{" "}
+                ₹{vehicle.basePrice}
+            </p>
+
+            <p>
+                <strong>Quantity :</strong>{" "}
+                {quantity}
+            </p>
+<p>
+    <strong>Total Price :</strong> ₹{totalPrice}
+</p>
+
+<p>
+    <strong>GST (10%) :</strong> ₹{gst}
+</p>
+
+<h4>
+    Grand Total : ₹{grandTotal}
+</h4>
+        </div>
+
+        <div className="vehicle-image">
 
             <img
-              src={`http://localhost:8080/${vehicle.image}`}
-              alt={vehicle.modelName}
-              width="400"
+                src={`http://localhost:8080/${vehicle.image}`}
+                alt={vehicle.modelName}
+                width="350"
             />
-
-
-
-            <h2>
-                {vehicle.modelName}
-            </h2>
-
-
-            <h3>
-                Manufacturer :
-                {vehicle.manufacturer.manufacturerName}
-            </h3>
-
-
-            <h3>
-                Segment :
-                {vehicle.segment.segmentName}
-            </h3>
-
-
-            <h3>
-                Base Price :
-                ₹{vehicle.basePrice}
-            </h3>
-
-
-
-            <hr/>
-
-
-            <h2>
-                Components
-            </h2>
-
-
-          {configuration.components.map((item) => (
-
-    <div key={item.configId}>
-
-        <h3>{item.componentName}</h3>
-
-        <p>
-            Type : {item.componentType}
-        </p>
-
-        <p>
-            {item.configurable === "Y"
-                ? "Customizable"
-                : "Fixed"}
-        </p>
-
-    </div>
-
-))}
-
 
         </div>
 
-    );
+    </div>
 
+    <hr/>
 
+    <h2>Standard Features</h2>
+
+    {
+        standard.map(item => (
+
+            <div key={item.configId}>
+
+                {item.componentName}
+
+            </div>
+
+        ))
+    }
+
+    <hr/>
+
+    <h2>Interior Features</h2>
+
+    {
+        interior.map(item => (
+
+            <div key={item.configId}>
+
+                {item.componentName}
+
+            </div>
+
+        ))
+    }
+
+    <hr/>
+
+    <h2>Exterior Features</h2>
+
+    {
+        exterior.map(item => (
+
+            <div key={item.configId}>
+
+                {item.componentName}
+
+            </div>
+
+        ))
+    }
+
+    <div className="text-center mt-4">
+
+        <button
+            className="btn btn-primary"
+            onClick={() => navigate("/configure")}
+        >
+            Configure
+        </button>
+
+    </div>
+
+</div>
+
+);
 }
 
 

@@ -34,6 +34,8 @@ function App() {
                     path="/vehicle-selection"
                     element={<VehicleSelectionPage />}
                 />
+                        <Route path="/configure" element={<ConfigurePage />} />
+
                 <Route
     path="/default-config"
     element={<DefaultConfigurationPage />}
