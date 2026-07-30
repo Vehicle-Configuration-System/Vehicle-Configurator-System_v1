@@ -38,27 +38,41 @@ function LoginPage() {
 
     }
 
-    const passwordPattern =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+    fetch("http://localhost:8080/user/login", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        email,
+        password
+    })
+})
+.then((response) => {
 
-    if(!passwordPattern.test(password)){
+    if(!response.ok){
 
-        alert(
-            "Password must contain Minimum 8 characters, one Uppercase, one Lowercase, one Number and one Special Character."
-        );
-
-        return;
+        throw new Error("Invalid Email or Password");
 
     }
 
-    console.log({
-        email,
-        password
-    });
+    return response.json();
+
+})
+.then((data) => {
+
+    sessionStorage.setItem("token", data.token);
 
     alert("Login Successful");
 
-    navigate("/welcome");
+    navigate("/vehicle-selection");
+
+})
+.catch((error) => {
+
+    alert(error.message);
+
+});
 
 };
 

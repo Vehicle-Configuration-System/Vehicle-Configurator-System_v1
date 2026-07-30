@@ -33,7 +33,7 @@ function RegisterPage() {
 
 };
 
- const handleRegister = (e) => {
+ const handleRegister = async(e) => {
 
     e.preventDefault();
 
@@ -53,21 +53,13 @@ function RegisterPage() {
 
     }
 
-    if(user.username.includes(" ")){
+    if(user.username.trim().length < 5){
 
-        alert("Username should not contain spaces");
+    alert("Username must be at least 5 characters");
 
-        return;
+    return;
 
-    }
-
-    if(user.username.length < 5){
-
-        alert("Username must be at least 5 characters");
-
-        return;
-
-    }
+}
 
     const emailPattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
@@ -89,15 +81,13 @@ function RegisterPage() {
 
     }
 
-    const gstPattern=/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
+    if(user.gstNo.trim() === ""){
 
-    if(!gstPattern.test(user.gstNo.toUpperCase())){
+    alert("Please enter GST Number");
 
-        alert("Invalid GST Number");
+    return;
 
-        return;
-
-    }
+}
 
     if(user.registrationNo.trim()===""){
 
@@ -139,15 +129,13 @@ function RegisterPage() {
 
     }
 
-    const passwordPattern=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+    if(user.password.length < 8){
 
-    if(!passwordPattern.test(user.password)){
+    alert("Password must be at least 8 characters");
 
-        alert("Password must contain Minimum 8 characters, Uppercase, Lowercase, Number and Special Character");
+    return;
 
-        return;
-
-    }
+}
 
     if(user.password!==user.confirmPassword){
 
@@ -157,10 +145,30 @@ function RegisterPage() {
 
     }
 
-    alert("Registration Successful");
+try {
 
-    console.log(user);
+    const response = await fetch("http://localhost:8080/user/register", {
 
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(user)
+
+    });
+
+    const message = await response.text();
+
+    alert(message);
+
+}
+catch(error){
+
+    alert("Server Error");
+
+}
 };
   return (
   <div className="container-fluid login-bg">
