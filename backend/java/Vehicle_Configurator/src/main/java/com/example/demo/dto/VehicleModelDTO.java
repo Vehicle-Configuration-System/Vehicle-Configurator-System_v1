@@ -4,13 +4,15 @@ public class VehicleModelDTO {
 
     private int modelId;
     private String modelName;
+    private int minimumQuantity;
 
     public VehicleModelDTO() {
     }
 
-    public VehicleModelDTO(int modelId, String modelName) {
+    public VehicleModelDTO(int modelId, String modelName, int minimumQuantity) {
         this.modelId = modelId;
         this.modelName = modelName;
+        this.minimumQuantity = minimumQuantity;
     }
 
     public int getModelId() {
@@ -29,4 +31,11 @@ public class VehicleModelDTO {
         this.modelName = modelName;
     }
 
+    public int getMinimumQuantity() {
+        return minimumQuantity;
+    }
+
+    public void setMinimumQuantity(int minimumQuantity) {
+        this.minimumQuantity = minimumQuantity;
+    }
 }

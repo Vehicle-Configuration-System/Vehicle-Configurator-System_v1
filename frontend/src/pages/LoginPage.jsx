@@ -62,6 +62,8 @@ function LoginPage() {
 .then((data) => {
 
     sessionStorage.setItem("token", data.token);
+    sessionStorage.setItem("userId", data.userId);
+    sessionStorage.setItem("username", data.username);
 
     alert("Login Successful");
 

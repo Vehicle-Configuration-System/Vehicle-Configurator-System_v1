@@ -12,7 +12,7 @@ import com.example.demo.entities.VehicleModel;
 public interface VehicleModelRepository extends JpaRepository<VehicleModel, Integer> {
 
 	@Query("SELECT new com.example.demo.dto.VehicleModelDTO(" +
-		       "v.modelId, v.modelName) " +
+		       "v.modelId, v.modelName, v.minimumQuantity) " +
 		       "FROM VehicleModel v " +
 		       "WHERE v.manufacturer.manufacturerId = :manufacturerId " +
 		       "AND v.segment.segmentId = :segmentId")

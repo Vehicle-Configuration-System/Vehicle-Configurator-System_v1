@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const BASE_URL = "http://localhost:8080";
 
 export default function ConfigurePage() {
@@ -7,12 +7,15 @@ export default function ConfigurePage() {
     const modelId = sessionStorage.getItem("modelId");
     const [components, setComponents] = useState([]);
     const [vehicle, setVehicle] = useState(null);
-const [alternatives, setAlternatives] = useState({});
-const [selectedAlternatives, setSelectedAlternatives] = useState({});
-const [activeTab, setActiveTab] = useState("standard");
-const quantity = Number(sessionStorage.getItem("quantity"));
-
+    const [alternatives, setAlternatives] = useState({});
+    const [selectedAlternatives, setSelectedAlternatives] = useState({});
+    const [activeTab, setActiveTab] = useState("standard");
+    const quantity = Number(sessionStorage.getItem("quantity"));
+    const username = sessionStorage.getItem("username");
+const navigate = useNavigate();
 const [finalPrice, setFinalPrice] = useState(0);
+const formatPrice = (price) =>
+    Number(price).toLocaleString("en-IN");
 useEffect(() => {
 
     fetch(`${BASE_URL}/api/configurations/${modelId}`)
@@ -42,6 +45,75 @@ setFinalPrice(data.vehicle.basePrice);
         });
 
 }, []);
+const handleConfirmOrder = () => {
+    console.log("Selected Alternatives =", selectedAlternatives);
+
+    const selectedComponents = [];
+
+    Object.keys(selectedAlternatives).forEach(componentId => {
+
+    const selectedValue = selectedAlternatives[componentId];
+
+    if (selectedValue) {
+
+        const altId = Number(selectedValue);
+
+        const alt = (alternatives[componentId] || []).find(
+    a => a.componentId === altId
+        );
+
+        selectedComponents.push({
+
+            componentId: Number(componentId),
+            alternateComponentId: altId,
+            deltaPrice: alt ? alt.deltaPrice : 0
+
+        });
+
+    }
+
+});
+console.log(alternatives);
+    const request = {
+
+        userId: Number(sessionStorage.getItem("userId")),
+        modelId: Number(modelId),
+        quantity: quantity,
+        totalAmount: subTotal,
+        tax: gst,
+        finalAmount: grandTotal,
+        selectedComponents: selectedComponents
+
+    };
+    console.log(JSON.stringify(request, null, 2));
+console.log("Invoice Request =", request);
+    fetch("http://localhost:8080/api/invoice/generate", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(request)
+
+    })
+   .then(async (res) => {
+
+    console.log("Status =", res.status);
+
+    const data = await res.json();
+
+    console.log("Complete Response =", data);
+
+    if (!res.ok) {
+        throw new Error("Invoice generation failed");
+    }
+
+    navigate("/invoice/" + data.invoiceId);
+})
+.catch(err => console.log(err));
+};
     const core = components.filter(c => c.componentType === "C");
     const standard = components.filter(c => c.componentType === "S");
     const interior = components.filter(c => c.componentType === "I");
@@ -53,10 +125,11 @@ const loadAlternatives = async (componentId) => {
     );
 
     const data = await res.json();
-
+console.log("In load alternatives"+JSON.stringify(data,null,2));
     console.log("Component :", componentId);
     console.log("Alternatives :", data);
-
+    console.log("FIRST ALT =", data[0]);
+console.log(JSON.stringify(alternatives[3], null, 2));
     setAlternatives(prev => ({
         ...prev,
         [componentId]: data
@@ -68,7 +141,6 @@ if (!vehicle) {
     return <h2>Loading...</h2>;
 
 }
-
 function calculatePrice(selected) {
 
     let price = vehicle.basePrice;
@@ -78,26 +150,27 @@ function calculatePrice(selected) {
         const altId = Number(selected[componentId]);
 
         const alt = (alternatives[componentId] || []).find(
-            a => a.altId === altId
+            a => a.componentId === altId
         );
 
         if (alt) {
-
             price += alt.deltaPrice;
-
         }
 
     });
 
     setFinalPrice(price);
-
 }
+
 const subTotal = finalPrice * quantity;
 const gst = subTotal * 0.10;
 const grandTotal = subTotal + gst;
     return (
 
         <div className="container mt-4">
+<h5 className="fw-bold">
+                Welcome, {username} Please Configure your vehicle 
+            </h5>
 
             <h2>Configure Vehicle</h2>
 
@@ -110,7 +183,7 @@ const grandTotal = subTotal + gst;
 
 <p><strong>Segment :</strong> {vehicle.segment}</p>
 
-<p><strong>Base Price :</strong> ₹{vehicle.basePrice}</p>
+<p><strong>Base Price :</strong> ₹{formatPrice(vehicle.basePrice)}</p>
 
 <p><strong>Quantity :</strong> {sessionStorage.getItem("quantity")}</p>
 <img
@@ -163,13 +236,13 @@ const grandTotal = subTotal + gst;
 
 }}
                     >
-                        <option value="">Select</option>
+                        <option value="">Default</option>
 
                         {(alternatives[component.componentId] || []).map(alt => (
 
                             <option
                                 key={alt.altId}
-                                value={alt.altId}
+                                value={alt.componentId}
                             >
                                 {alt.componentName}
                             </option>
@@ -218,13 +291,13 @@ const grandTotal = subTotal + gst;
 
 }}
                     >
-                        <option value="">Select</option>
+                        <option value="">Default</option>
 
                         {(alternatives[component.componentId] || []).map(alt => (
 
                             <option
                                 key={alt.altId}
-                                value={alt.altId}
+                                value={alt.componentId}
                             >
                                 {alt.componentName}
                             </option>
@@ -273,13 +346,13 @@ const grandTotal = subTotal + gst;
 
 }}
                     >
-                        <option value="">Select</option>
+                        <option value="">Default</option>
 
                         {(alternatives[component.componentId] || []).map(alt => (
 
                             <option
                                 key={alt.altId}
-                                value={alt.altId}
+                                value={alt.componentId}
                             >
                                 {alt.componentName}
                             </option>
@@ -324,7 +397,8 @@ const grandTotal = subTotal + gst;
 
     <button
         className="btn btn-success"
-    >
+        onClick={handleConfirmOrder}
+>
         Confirm Order
     </button>
 
@@ -334,19 +408,19 @@ const grandTotal = subTotal + gst;
 <h4>Price Summary</h4>
 
 <p>
-    <strong>Configured Vehicle Price :</strong> ₹{finalPrice}
+    <strong>Configured Vehicle Price :</strong> ₹{formatPrice(finalPrice)}
 </p>
 
 <p>
-    <strong>Subtotal ({quantity} Qty) :</strong> ₹{subTotal}
+    <strong>Subtotal ({quantity} Qty) :</strong> ₹{formatPrice(subTotal)}
 </p>
 
 <p>
-    <strong>GST (10%) :</strong> ₹{gst}
+    <strong>GST (10%) :</strong> ₹{formatPrice(gst)}
 </p>
 
 <h3>
-    Grand Total : ₹{grandTotal}
+    Grand Total : ₹{formatPrice(grandTotal)}
 </h3>
         </div>
 

@@ -6,10 +6,64 @@ const navigate = useNavigate();
 
     const modelId = sessionStorage.getItem("modelId");
     const quantity = sessionStorage.getItem("quantity");
+    const username = sessionStorage.getItem("username");
 
 const [configuration, setConfiguration] = useState(null);
+const formatPrice = (price) =>
+    Number(price).toLocaleString("en-IN");
+const handleConfirmOrder = () => {
 
+    const request = {
 
+        userId: Number(sessionStorage.getItem("userId")),
+        modelId: Number(modelId),
+        quantity: qty,
+        totalAmount: totalPrice,
+        tax: gst,
+        finalAmount: grandTotal,
+
+        // Default configuration hai, isliye koi alternate component nahi
+        selectedComponents: []
+
+    };
+
+    fetch("http://localhost:8080/api/invoice/generate", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(request)
+
+    })
+    .then(res => {
+
+        if (!res.ok) {
+
+            throw new Error("Failed to generate invoice");
+
+        }
+
+        return res.json();
+
+    })
+    .then(data => {
+
+        alert("Invoice Generated Successfully");
+
+        //console.log(data);
+ navigate(`/invoice/${data.invoiceId}`);
+       
+    })
+    .catch(err => {
+
+        alert(err.message);
+
+    });
+
+};
     useEffect(()=>{
 
 
@@ -62,8 +116,11 @@ const grandTotal = totalPrice + gst;
   return (
 
 <div className="container">
+    <h5 className="fw-bold">
+                Welcome, {username} Please Configure your vehicle 
+            </h5>
 
-    <h1>Default Configuration</h1>
+  
 
     <div className="vehicle-container">
 
@@ -83,7 +140,7 @@ const grandTotal = totalPrice + gst;
 
             <p>
                 <strong>Base Price :</strong>{" "}
-                ₹{vehicle.basePrice}
+                ₹{formatPrice(vehicle.basePrice)}
             </p>
 
             <p>
@@ -91,15 +148,15 @@ const grandTotal = totalPrice + gst;
                 {quantity}
             </p>
 <p>
-    <strong>Total Price :</strong> ₹{totalPrice}
+    <strong>Total Price :</strong> ₹{formatPrice(totalPrice)}
 </p>
 
 <p>
-    <strong>GST (10%) :</strong> ₹{gst}
+    <strong>GST (10%) :</strong> ₹{formatPrice(gst)}
 </p>
 
 <h4>
-    Grand Total : ₹{grandTotal}
+    Grand Total : ₹{formatPrice(grandTotal)}
 </h4>
         </div>
 
@@ -163,16 +220,23 @@ const grandTotal = totalPrice + gst;
         ))
     }
 
-    <div className="text-center mt-4">
+   <div className="text-center mt-4">
 
-        <button
-            className="btn btn-primary"
-            onClick={() => navigate("/configure")}
-        >
-            Configure
-        </button>
+    <button
+        className="btn btn-primary me-3"
+        onClick={() => navigate("/configure")}
+    >
+        Configure
+    </button>
 
-    </div>
+    <button
+        className="btn btn-success"
+        onClick={handleConfirmOrder}
+    >
+        Confirm Order
+    </button>
+
+</div>
 
 </div>
 

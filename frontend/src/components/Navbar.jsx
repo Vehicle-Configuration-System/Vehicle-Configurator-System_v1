@@ -1,6 +1,17 @@
 import { NavLink } from "react-router-dom";
-
+import {useNavigate } from "react-router-dom";
 function Navbar() {
+    const navigate = useNavigate();
+
+const token = sessionStorage.getItem("token");
+
+const handleLogout = () => {
+
+    sessionStorage.clear();
+
+    navigate("/login");
+
+};
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 
@@ -44,23 +55,38 @@ function Navbar() {
                             </NavLink>
                         </li>
 
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <NavLink className="nav-link" to="/feedback">
                                 Feedback
                             </NavLink>
-                        </li>
+                        </li> */}
 
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/register">
-                                Registration
-                            </NavLink>
-                        </li>
+                       {
+    !token ? (
+        <>
+            <li className="nav-item">
+                <NavLink className="nav-link" to="/register">
+                    Registration
+                </NavLink>
+            </li>
 
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/login">
-                                Login
-                            </NavLink>
-                        </li>
+            <li className="nav-item">
+                <NavLink className="nav-link" to="/login">
+                    Login
+                </NavLink>
+            </li>
+        </>
+    ) : (
+        <li className="nav-item">
+            <button
+                className="btn btn-danger ms-2"
+                onClick={handleLogout}
+            >
+                Logout
+            </button>
+        </li>
+    )
+}
 
                     </ul>
 

@@ -16,44 +16,127 @@ import ModelPage from "./pages/ModelPage";
 import QuantityPage from "./pages/QuantityPage";
 import ConfigurePage from "./pages/ConfigurePage";
 import VehicleSelectionPage from "./pages/VehicleSelectionPage";
-
+import InvoicePage from "./pages/InvoicePage";
+import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+  <Navbar />
 
-      <Routes>
-         
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/welcome" element={<WelcomePage />} />
-        
-        {/* <Route path="/segment" element={<SegmentPage />}/> */}
-         <Route
-                    path="/vehicle-selection"
-                    element={<VehicleSelectionPage />}
-                />
-                        <Route path="/configure" element={<ConfigurePage />} />
+  <Routes>
 
-                <Route
-    path="/default-config"
-    element={<DefaultConfigurationPage />}
-/>
-         <Route path="/about" element={<AboutPage />} />
-         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/feedback" element={<FeedbackPage />} />
-          <Route path="/manufacturer" element={<ManufacturerPage />}/>
-         <Route path="/manufacturer/:segmentId" element={<ManufacturerPage />}/>
-           <Route path="/model/:manufacturerId" element={<ModelPage />}/>
-           <Route  path="/quantity/:modelId"  element={<QuantityPage />}/>
-           <Route  path="/default-config/:modelId"  element={<DefaultConfigurationPage />}/>
-           <Route path="/configure/:modelId" element={<ConfigurePage />}
-/>
+    {/* Public Routes */}
+    <Route path="/" element={<HomePage />} />
+    <Route path="/login" element={<LoginPage />} />
+    <Route path="/register" element={<RegisterPage />} />
+    <Route path="/about" element={<AboutPage />} />
+    <Route path="/contact" element={<ContactPage />} />
+    <Route path="/feedback" element={<FeedbackPage />} />
 
+    {/* Protected Routes */}
 
-      </Routes>
-    </BrowserRouter>
+    <Route
+      path="/welcome"
+      element={
+        <ProtectedRoute>
+          <WelcomePage />
+        </ProtectedRoute>
+      }
+    />
+
+    <Route
+      path="/vehicle-selection"
+      element={
+        <ProtectedRoute>
+          <VehicleSelectionPage />
+        </ProtectedRoute>
+      }
+    />
+
+    <Route
+      path="/manufacturer"
+      element={
+        <ProtectedRoute>
+          <ManufacturerPage />
+        </ProtectedRoute>
+      }
+    />
+
+    <Route
+      path="/manufacturer/:segmentId"
+      element={
+        <ProtectedRoute>
+          <ManufacturerPage />
+        </ProtectedRoute>
+      }
+    />
+
+    <Route
+      path="/model/:manufacturerId"
+      element={
+        <ProtectedRoute>
+          <ModelPage />
+        </ProtectedRoute>
+      }
+    />
+
+    <Route
+      path="/quantity/:modelId"
+      element={
+        <ProtectedRoute>
+          <QuantityPage />
+        </ProtectedRoute>
+      }
+    />
+
+    <Route
+      path="/configure"
+      element={
+        <ProtectedRoute>
+          <ConfigurePage />
+        </ProtectedRoute>
+      }
+    />
+
+    <Route
+      path="/configure/:modelId"
+      element={
+        <ProtectedRoute>
+          <ConfigurePage />
+        </ProtectedRoute>
+      }
+    />
+
+    <Route
+      path="/default-config"
+      element={
+        <ProtectedRoute>
+          <DefaultConfigurationPage />
+        </ProtectedRoute>
+      }
+    />
+
+    <Route
+      path="/default-config/:modelId"
+      element={
+        <ProtectedRoute>
+          <DefaultConfigurationPage />
+        </ProtectedRoute>
+      }
+    />
+
+    <Route
+      path="/invoice/:invoiceId"
+      element={
+        <ProtectedRoute>
+          <InvoicePage />
+        </ProtectedRoute>
+      }
+    />
+
+  </Routes>
+
+</BrowserRouter>
   );
 }
 

@@ -23,10 +23,11 @@ public class JwtUtil {
 
     }
 
-    public String generateToken(String username) {
+    public String generateToken(String username, int userId) {
 
         return Jwts.builder()
                 .setSubject(username)
+                .claim("userId", userId)
                 .setIssuer("VehicleConfigurator")
                 .setIssuedAt(new Date())
                 .setExpiration(
@@ -37,7 +38,7 @@ public class JwtUtil {
                 .compact();
 
     }
-
+    
     public String extractUsername(String token) {
 
         return Jwts.parserBuilder()
@@ -48,7 +49,16 @@ public class JwtUtil {
                 .getSubject();
 
     }
+    public Integer extractUserId(String token) {
 
+        Claims claims = Jwts.parserBuilder()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+
+        return claims.get("userId", Integer.class);
+    }
     public boolean isTokenValid(String token) {
 
         try {
