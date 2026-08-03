@@ -104,10 +104,15 @@ public class UserService {
             throw new InvalidCredentialsException("Invalid Password");
         }
 
-        String token = jwtUtil.generateToken(user.getEmail());
+        String token = jwtUtil.generateToken(
+                user.getUsername(),
+                user.getUserId());
 
         logger.info("Login successful for email: {}", dto.getEmail());
 
-        return new LoginResponseDTO(token);
+        return new LoginResponseDTO(
+                token,
+                user.getUserId(),
+                user.getUsername());
     }
 }

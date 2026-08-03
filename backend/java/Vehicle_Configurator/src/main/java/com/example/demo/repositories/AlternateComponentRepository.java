@@ -13,6 +13,8 @@ List<AlternateComponent> findByModel_ModelIdAndComponent_CompId(
     int modelId,
     int componentId);
 
-
-
+AlternateComponent findByAlternateComponent_CompIdAndComponent_CompIdAndModel_ModelId(
+        int altCompId,
+        int compId,
+        int modelId);
 }

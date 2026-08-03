@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function VehicleSelectionPage() {
-
+const username = sessionStorage.getItem("username");
     const [segments, setSegments] = useState([]);
     const [selectedSegment, setSelectedSegment] = useState("");
-const [quantity, setQuantity] = useState("");
+    const [quantity, setQuantity] = useState("");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     const [manufacturers, setManufacturers] = useState([]);
@@ -147,6 +147,14 @@ function handleNext() {
     return (
 
         <div className="container mt-5">
+    
+
+            <h5 className="fw-bold">
+                Welcome, {username}
+            </h5>
+
+        
+
 
             <div className="card shadow">
 
