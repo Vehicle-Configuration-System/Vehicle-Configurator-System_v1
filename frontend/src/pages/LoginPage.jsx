@@ -77,7 +77,12 @@ function LoginPage() {
 });
 
 };
+const handleGoogleLogin = () => {
 
+    window.location.href =
+        "http://localhost:8080/oauth2/authorization/google";
+
+};
   return (
     <div className="container-fluid login-bg">
 
@@ -125,7 +130,13 @@ function LoginPage() {
               >
                 Login
               </button>
-
+<button
+    type="button"
+    className="btn btn-danger w-100 mt-3"
+    onClick={handleGoogleLogin}
+>
+    Continue with Google
+</button>
             </form>
 
             <p className="text-center mt-3">
