@@ -18,6 +18,7 @@ import ConfigurePage from "./pages/ConfigurePage";
 import VehicleSelectionPage from "./pages/VehicleSelectionPage";
 import InvoicePage from "./pages/InvoicePage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import OAuthSuccessPage from "./pages/OAuthSuccessPage";
 function App() {
   return (
     <BrowserRouter>
@@ -34,7 +35,10 @@ function App() {
     <Route path="/feedback" element={<FeedbackPage />} />
 
     {/* Protected Routes */}
-
+<Route
+ path="/oauth-success"
+ element={<OAuthSuccessPage />}
+/>
     <Route
       path="/welcome"
       element={

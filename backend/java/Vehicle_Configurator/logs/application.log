@@ -1,24 +1,24 @@
-2026-08-03 00:00:05 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2026-08-03 00:00:05 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-08-03 00:00:05 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-08-03 00:00:05 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-08-03 00:00:05 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
-2026-08-03 00:00:05 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
-2026-08-03 00:00:05 INFO  c.e.d.VehicleConfiguratorApplication - Starting VehicleConfiguratorApplication using Java 17.0.7 with PID 33120 (C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator\target\classes started by onkar in C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator)
-2026-08-03 00:00:05 INFO  c.e.d.VehicleConfiguratorApplication - No active profile set, falling back to 1 default profile: "default"
-2026-08-03 00:00:05 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-08-03 00:00:05 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 10 JPA repository interfaces.
-2026-08-03 00:00:05 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-08-03 00:00:05 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-03 00:00:05 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-03 00:00:06 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 570 ms
-2026-08-03 00:00:06 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-08-03 00:00:06 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-08-03 00:00:06 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
-2026-08-03 00:00:06 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2abac537
-2026-08-03 00:00:06 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
-2026-08-03 00:00:06 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-08-03 00:00:06 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-08-04 00:01:30 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-08-04 00:01:30 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-04 00:01:30 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-08-04 00:01:30 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:01:30 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Shutdown initiated...
+2026-08-04 00:01:30 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Shutdown completed.
+2026-08-04 00:01:30 INFO  c.e.d.VehicleConfiguratorApplication - Starting VehicleConfiguratorApplication using Java 17.0.7 with PID 25648 (C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator\target\classes started by onkar in C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator)
+2026-08-04 00:01:30 INFO  c.e.d.VehicleConfiguratorApplication - The following 1 profile is active: "dev"
+2026-08-04 00:01:30 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-04 00:01:30 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 11 JPA repository interfaces.
+2026-08-04 00:01:30 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-08-04 00:01:30 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-04 00:01:30 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-04 00:01:30 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 373 ms
+2026-08-04 00:01:30 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-04 00:01:30 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-04 00:01:30 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Starting...
+2026-08-04 00:01:30 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-11 - Added connection com.mysql.cj.jdbc.ConnectionImpl@504c0dde
+2026-08-04 00:01:30 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Start completed.
+2026-08-04 00:01:30 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-04 00:01:30 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [jdbc:mysql://localhost:3306/vconfig]
 	Database driver: MySQL Connector/J
 	Database dialect: MySQLDialect
@@ -30,35 +30,35 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-08-03 00:00:06 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-08-03 00:00:06 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-08-03 00:00:06 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-08-03 00:00:06 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-08-03 00:00:06 WARN  o.s.b.t.a.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2026-08-03 00:00:06 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-08-03 00:00:06 INFO  c.e.d.VehicleConfiguratorApplication - Started VehicleConfiguratorApplication in 1.501 seconds (process running for 276.015)
-2026-08-03 00:00:06 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2026-08-03 00:00:48 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2026-08-03 00:00:48 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-08-03 00:00:48 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-08-03 00:00:48 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-08-03 00:00:48 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
-2026-08-03 00:00:48 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
-2026-08-03 00:00:48 INFO  c.e.d.VehicleConfiguratorApplication - Starting VehicleConfiguratorApplication using Java 17.0.7 with PID 33120 (C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator\target\classes started by onkar in C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator)
-2026-08-03 00:00:48 INFO  c.e.d.VehicleConfiguratorApplication - The following 1 profile is active: "dev"
-2026-08-03 00:00:49 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-08-03 00:00:49 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 10 JPA repository interfaces.
-2026-08-03 00:00:49 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-08-03 00:00:49 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-03 00:00:49 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
-2026-08-03 00:00:49 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 410 ms
-2026-08-03 00:00:49 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-08-03 00:00:49 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-08-03 00:00:49 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
-2026-08-03 00:00:49 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@90d4bc3
-2026-08-03 00:00:49 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
-2026-08-03 00:00:49 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-08-03 00:00:49 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-08-04 00:01:31 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-04 00:01:31 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:01:31 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-04 00:01:31 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-04 00:01:31 WARN  o.s.b.t.a.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-08-04 00:01:31 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-08-04 00:01:31 INFO  c.e.d.VehicleConfiguratorApplication - Started VehicleConfiguratorApplication in 1.0 seconds (process running for 3969.234)
+2026-08-04 00:01:31 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-08-04 00:27:42 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-08-04 00:27:42 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-04 00:27:42 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-08-04 00:27:42 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:27:42 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Shutdown initiated...
+2026-08-04 00:27:42 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Shutdown completed.
+2026-08-04 00:27:42 INFO  c.e.d.VehicleConfiguratorApplication - Starting VehicleConfiguratorApplication using Java 17.0.7 with PID 25648 (C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator\target\classes started by onkar in C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator)
+2026-08-04 00:27:42 INFO  c.e.d.VehicleConfiguratorApplication - The following 1 profile is active: "dev"
+2026-08-04 00:27:42 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-04 00:27:42 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 11 JPA repository interfaces.
+2026-08-04 00:27:42 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-08-04 00:27:42 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-04 00:27:42 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-04 00:27:42 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 264 ms
+2026-08-04 00:27:42 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-04 00:27:42 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-04 00:27:42 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Starting...
+2026-08-04 00:27:42 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-12 - Added connection com.mysql.cj.jdbc.ConnectionImpl@50dee3ab
+2026-08-04 00:27:42 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Start completed.
+2026-08-04 00:27:42 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-04 00:27:42 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [jdbc:mysql://localhost:3306/vconfig]
 	Database driver: MySQL Connector/J
 	Database dialect: MySQLDialect
@@ -70,16 +70,359 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-08-03 00:00:49 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-08-03 00:00:49 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-08-03 00:00:49 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-08-03 00:00:50 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-08-03 00:00:50 WARN  o.s.b.t.a.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
-2026-08-03 00:00:50 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-08-03 00:00:50 INFO  c.e.d.VehicleConfiguratorApplication - Started VehicleConfiguratorApplication in 1.237 seconds (process running for 319.212)
-2026-08-03 00:00:50 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2026-08-03 00:01:09 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-08-03 00:01:09 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-08-03 00:01:09 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2026-08-03 00:01:10 INFO  c.example.demo.services.UserService - Login attempt for email: onkarkhade19@gmail.com
-2026-08-03 00:01:10 INFO  c.example.demo.services.UserService - Login successful for email: onkarkhade19@gmail.com
+2026-08-04 00:27:43 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-04 00:27:43 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:27:43 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-04 00:27:43 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-04 00:27:43 WARN  o.s.b.t.a.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-08-04 00:27:43 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-08-04 00:27:43 INFO  c.e.d.VehicleConfiguratorApplication - Started VehicleConfiguratorApplication in 0.84 seconds (process running for 5541.333)
+2026-08-04 00:27:43 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-08-04 00:29:16 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 83 class path changes (0 additions, 69 deletions, 14 modifications)
+2026-08-04 00:29:16 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-04 00:29:16 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-08-04 00:29:16 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:29:16 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Shutdown initiated...
+2026-08-04 00:29:16 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Shutdown completed.
+2026-08-04 00:29:16 INFO  c.e.d.VehicleConfiguratorApplication - Starting VehicleConfiguratorApplication using Java 17.0.7 with PID 25648 (C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator\target\classes started by onkar in C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator)
+2026-08-04 00:29:16 INFO  c.e.d.VehicleConfiguratorApplication - The following 1 profile is active: "dev"
+2026-08-04 00:29:16 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-04 00:29:16 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 0 ms. Found 0 JPA repository interfaces.
+2026-08-04 00:29:16 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-08-04 00:29:16 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-04 00:29:16 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-04 00:29:16 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 165 ms
+2026-08-04 00:29:16 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-04 00:29:16 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-04 00:29:16 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Starting...
+2026-08-04 00:29:16 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-13 - Added connection com.mysql.cj.jdbc.ConnectionImpl@493ff6d8
+2026-08-04 00:29:16 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Start completed.
+2026-08-04 00:29:16 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-04 00:29:16 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/vconfig]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.39
+	Default catalog/schema: vconfig/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-04 00:29:16 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-04 00:29:16 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:29:16 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-04 00:29:17 WARN  o.s.b.t.a.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-08-04 00:29:17 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-08-04 00:29:17 INFO  c.e.d.VehicleConfiguratorApplication - Started VehicleConfiguratorApplication in 0.403 seconds (process running for 5635.02)
+2026-08-04 00:29:17 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   OAuth2ClientWebSecurityAutoConfiguration.OAuth2SecurityFilterChainConfiguration matched:
+      - AllNestedConditions 2 matched 0 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) did not find any beans; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2026-08-04 00:29:35 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 69 class path changes (69 additions, 0 deletions, 0 modifications)
+2026-08-04 00:29:35 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-04 00:29:35 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-08-04 00:29:35 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:29:35 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Shutdown initiated...
+2026-08-04 00:29:35 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Shutdown completed.
+2026-08-04 00:29:35 INFO  c.e.d.VehicleConfiguratorApplication - Starting VehicleConfiguratorApplication using Java 17.0.7 with PID 25648 (C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator\target\classes started by onkar in C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator)
+2026-08-04 00:29:35 INFO  c.e.d.VehicleConfiguratorApplication - The following 1 profile is active: "dev"
+2026-08-04 00:29:35 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-04 00:29:35 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 11 JPA repository interfaces.
+2026-08-04 00:29:35 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-08-04 00:29:35 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-04 00:29:35 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-04 00:29:35 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 297 ms
+2026-08-04 00:29:35 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-04 00:29:35 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-04 00:29:35 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-14 - Starting...
+2026-08-04 00:29:35 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-14 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1d00f7f6
+2026-08-04 00:29:35 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-14 - Start completed.
+2026-08-04 00:29:35 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-04 00:29:35 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/vconfig]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.39
+	Default catalog/schema: vconfig/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-04 00:29:36 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-04 00:29:36 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:29:36 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-04 00:29:36 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-04 00:29:36 WARN  o.s.b.t.a.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-08-04 00:29:36 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-08-04 00:29:36 INFO  c.e.d.VehicleConfiguratorApplication - Started VehicleConfiguratorApplication in 1.149 seconds (process running for 5654.404)
+2026-08-04 00:29:36 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   OAuth2ClientWebSecurityAutoConfiguration.OAuth2SecurityFilterChainConfiguration:
+      Did not match:
+         - AllNestedConditions 1 matched 1 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) found beans of type 'org.springframework.security.web.SecurityFilterChain' securityFilterChain; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2026-08-04 00:29:39 INFO  c.e.d.VehicleConfiguratorApplicationTests - Starting VehicleConfiguratorApplicationTests using Java 17.0.7 with PID 15676 (started by onkar in C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator)
+2026-08-04 00:29:39 INFO  c.e.d.VehicleConfiguratorApplicationTests - The following 1 profile is active: "dev"
+2026-08-04 00:29:41 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-04 00:29:41 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 88 ms. Found 11 JPA repository interfaces.
+2026-08-04 00:29:42 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-04 00:29:42 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-04 00:29:42 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-04 00:29:42 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-04 00:29:43 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7a0f1f9d
+2026-08-04 00:29:43 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-04 00:29:43 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-04 00:29:43 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/vconfig]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.39
+	Default catalog/schema: vconfig/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-04 00:29:44 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-04 00:29:44 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:29:45 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-04 00:29:46 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-04 00:29:47 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-04 00:29:47 WARN  o.s.b.t.a.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-08-04 00:29:48 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 13 endpoints beneath base path '/actuator'
+2026-08-04 00:29:48 INFO  c.e.d.VehicleConfiguratorApplicationTests - Started VehicleConfiguratorApplicationTests in 9.347 seconds (process running for 12.513)
+2026-08-04 00:29:48 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:29:48 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-08-04 00:29:48 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-08-04 00:29:54 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 83 class path changes (0 additions, 0 deletions, 83 modifications)
+2026-08-04 00:29:54 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-04 00:29:54 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-08-04 00:29:54 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:29:54 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-14 - Shutdown initiated...
+2026-08-04 00:29:54 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-14 - Shutdown completed.
+2026-08-04 00:29:55 INFO  c.e.d.VehicleConfiguratorApplication - Starting VehicleConfiguratorApplication using Java 17.0.7 with PID 25648 (C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator\target\classes started by onkar in C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator)
+2026-08-04 00:29:55 INFO  c.e.d.VehicleConfiguratorApplication - The following 1 profile is active: "dev"
+2026-08-04 00:29:55 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-04 00:29:55 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 11 JPA repository interfaces.
+2026-08-04 00:29:55 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-08-04 00:29:55 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-04 00:29:55 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-04 00:29:55 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 326 ms
+2026-08-04 00:29:55 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-04 00:29:55 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-04 00:29:55 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-15 - Starting...
+2026-08-04 00:29:55 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-15 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5ca97ba7
+2026-08-04 00:29:55 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-15 - Start completed.
+2026-08-04 00:29:55 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-04 00:29:55 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/vconfig]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.39
+	Default catalog/schema: vconfig/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-04 00:29:55 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-04 00:29:55 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:29:55 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-04 00:29:55 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-04 00:29:55 WARN  o.s.b.t.a.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-08-04 00:29:56 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-08-04 00:29:56 INFO  c.e.d.VehicleConfiguratorApplication - Started VehicleConfiguratorApplication in 0.944 seconds (process running for 5673.925)
+2026-08-04 00:29:56 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-08-04 00:30:22 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 83 class path changes (0 additions, 71 deletions, 12 modifications)
+2026-08-04 00:30:22 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-04 00:30:22 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-08-04 00:30:22 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:30:22 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-15 - Shutdown initiated...
+2026-08-04 00:30:22 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-15 - Shutdown completed.
+2026-08-04 00:30:22 INFO  c.e.d.VehicleConfiguratorApplication - Starting VehicleConfiguratorApplication using Java 17.0.7 with PID 25648 (C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator\target\classes started by onkar in C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator)
+2026-08-04 00:30:22 INFO  c.e.d.VehicleConfiguratorApplication - The following 1 profile is active: "dev"
+2026-08-04 00:30:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-04 00:30:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37 ms. Found 9 JPA repository interfaces.
+2026-08-04 00:30:23 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-08-04 00:30:23 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-04 00:30:23 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-04 00:30:23 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 656 ms
+2026-08-04 00:30:23 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-04 00:30:23 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-04 00:30:23 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-16 - Starting...
+2026-08-04 00:30:23 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-16 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4511fd5e
+2026-08-04 00:30:23 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-16 - Start completed.
+2026-08-04 00:30:23 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-04 00:30:23 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/vconfig]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.39
+	Default catalog/schema: vconfig/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-04 00:30:23 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-04 00:30:23 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:30:23 WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'excelUploadController': Unsatisfied dependency expressed through field 'excelUploadService': No qualifying bean of type 'com.example.demo.services.ExcelUploadService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2026-08-04 00:30:23 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:30:23 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-16 - Shutdown initiated...
+2026-08-04 00:30:23 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-16 - Shutdown completed.
+2026-08-04 00:30:23 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2026-08-04 00:30:23 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-08-04 00:30:23 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field excelUploadService in com.example.demo.controllers.ExcelUploadController required a bean of type 'com.example.demo.services.ExcelUploadService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.example.demo.services.ExcelUploadService' in your configuration.
+
+2026-08-04 00:30:25 INFO  c.e.d.VehicleConfiguratorApplication - Starting VehicleConfiguratorApplication using Java 17.0.7 with PID 25648 (C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator\target\classes started by onkar in C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator)
+2026-08-04 00:30:25 INFO  c.e.d.VehicleConfiguratorApplication - The following 1 profile is active: "dev"
+2026-08-04 00:30:25 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-04 00:30:25 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 11 JPA repository interfaces.
+2026-08-04 00:30:25 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-08-04 00:30:25 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-04 00:30:25 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-04 00:30:25 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 464 ms
+2026-08-04 00:30:25 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-04 00:30:25 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-04 00:30:25 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-17 - Starting...
+2026-08-04 00:30:25 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-17 - Added connection com.mysql.cj.jdbc.ConnectionImpl@320923fe
+2026-08-04 00:30:25 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-17 - Start completed.
+2026-08-04 00:30:25 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-04 00:30:25 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/vconfig]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.39
+	Default catalog/schema: vconfig/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-04 00:30:25 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-04 00:30:25 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:30:26 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-04 00:30:26 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-04 00:30:26 WARN  o.s.b.t.a.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-08-04 00:30:26 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-08-04 00:30:26 INFO  c.e.d.VehicleConfiguratorApplication - Started VehicleConfiguratorApplication in 1.329 seconds (process running for 5704.278)
+2026-08-04 00:30:26 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-08-04 00:30:27 INFO  c.e.d.VehicleConfiguratorApplicationTests - Starting VehicleConfiguratorApplicationTests using Java 17.0.7 with PID 9020 (started by onkar in C:\Users\onkar\Desktop\v-Config Project\Vehicle-Configurator-System_v1\backend\java\Vehicle_Configurator)
+2026-08-04 00:30:27 INFO  c.e.d.VehicleConfiguratorApplicationTests - The following 1 profile is active: "dev"
+2026-08-04 00:30:28 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-04 00:30:29 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 83 ms. Found 11 JPA repository interfaces.
+2026-08-04 00:30:30 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-04 00:30:30 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-04 00:30:30 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-04 00:30:30 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-04 00:30:31 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7894a250
+2026-08-04 00:30:31 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-04 00:30:31 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-04 00:30:31 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/vconfig]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.39
+	Default catalog/schema: vconfig/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-04 00:30:32 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-04 00:30:32 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:30:32 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-04 00:30:33 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-04 00:30:34 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-04 00:30:34 WARN  o.s.b.t.a.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2026-08-04 00:30:35 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 13 endpoints beneath base path '/actuator'
+2026-08-04 00:30:35 INFO  c.e.d.VehicleConfiguratorApplicationTests - Started VehicleConfiguratorApplicationTests in 7.579 seconds (process running for 10.706)
+2026-08-04 00:30:35 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04 00:30:35 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-08-04 00:30:35 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
