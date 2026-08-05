@@ -1,4 +1,4 @@
-﻿using backend_dotnet.Models;
+using backend_dotnet.Models;
 using backend_dotnet.Services;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

@@ -1,4 +1,4 @@
-﻿using backend_dotnet.DTO;
+using backend_dotnet.DTO;
 using backend_dotnet.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +18,7 @@ namespace backend_dotnet.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterRequestDTO dto)
+        public async Task<IActionResult> Register([FromBody] RegisterRequestDto dto)
         {
             var message = await _userService.RegisterAsync(dto);
 

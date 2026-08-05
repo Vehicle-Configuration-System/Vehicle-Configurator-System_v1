@@ -1,4 +1,4 @@
-﻿using backend_dotnet.Models;
+using backend_dotnet.Models;
 
 namespace backend_dotnet.Repository
 {

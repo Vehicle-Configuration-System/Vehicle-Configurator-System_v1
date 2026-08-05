@@ -1,7 +1,7 @@
-﻿
 
-    using backend_dotnet.DTOs;
-    using global::backend_dotnet.DTOs;
+
+    using backend_dotnet.DTO;
+    using global::backend_dotnet.DTO;
 
     namespace backend_dotnet.Services
     {

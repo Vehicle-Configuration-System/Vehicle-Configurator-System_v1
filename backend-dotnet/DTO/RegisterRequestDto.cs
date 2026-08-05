@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace backend_dotnet.DTO
 {
-    public class RegisterRequestDTO
+    public class RegisterRequestDto
     {
         [Required(ErrorMessage = "Company Name is required")]
         [StringLength(100)]

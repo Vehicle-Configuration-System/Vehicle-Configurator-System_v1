@@ -1,4 +1,4 @@
-﻿namespace backend_dotnet.Helpers
+namespace backend_dotnet.Helpers
 {
     public class PasswordHasher
     {

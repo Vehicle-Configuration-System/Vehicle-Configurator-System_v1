@@ -1,20 +1,20 @@
-﻿using backend_dotnet.DTO;
+using backend_dotnet.DTO;
 
 namespace backend_dotnet.Services
 {
     public interface IUserService
     {
         // Register New User
-        Task<string> RegisterAsync(RegisterRequestDTO registerDto);
+        Task<string> RegisterAsync(RegisterRequestDto registerDto);
 
         // Login User
-        Task<LoginResponseDTO> LoginAsync(LoginRequestDTO loginDto);
+        Task<LoginResponseDto> LoginAsync(LoginRequestDto loginDto);
 
         // Get User By Id
-        Task<UserResponseDTO?> GetUserByIdAsync(int userId);
+        Task<UserResponseDto?> GetUserByIdAsync(int userId);
 
         // Get All Users
-        Task<IEnumerable<UserResponseDTO>> GetAllUsersAsync();
+        Task<IEnumerable<UserResponseDto>> GetAllUsersAsync();
 
         // Delete User
         Task<bool> DeleteUserAsync(int userId);
