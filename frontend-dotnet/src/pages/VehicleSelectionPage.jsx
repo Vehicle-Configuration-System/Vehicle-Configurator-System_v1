@@ -18,7 +18,7 @@ const username = sessionStorage.getItem("username");
 );
     useEffect(() => {
 
-        fetch("http://localhost:5115/segment")
+        fetch("http://localhost:3306/segment")
             .then((response) => {
 
                 if (!response.ok) {
