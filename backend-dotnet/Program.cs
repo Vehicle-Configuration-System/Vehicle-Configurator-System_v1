@@ -1,5 +1,7 @@
 using backend_dotnet.Data;
 using Microsoft.EntityFrameworkCore;
+using backend_dotnet.Repository;
+using backend_dotnet.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
             builder.Configuration.GetConnectionString("DefaultConnection")
         )
     ));
+
+
+builder.Services.AddScoped<ISegmentRepository, SegmentRepository>();
+
+builder.Services.AddScoped<ISegmentService, SegmentService>();
 
 // OpenAPI / Swagger
 builder.Services.AddOpenApi();
