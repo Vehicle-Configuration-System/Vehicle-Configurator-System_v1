@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace backend_dotnet.Models
 {
     [Table("component")]
-    public class Component
+    public class LoginRequest
     {
         [Key]
         [Column("comp_id")]

@@ -20,7 +20,7 @@ namespace backend_dotnet.Models
         public int CompId { get; set; }
 
         [ForeignKey(nameof(CompId))]
-        public Component? Component { get; set; }
+        public LoginRequest? Component { get; set; }
 
         [Required]
         [Column("comp_type")]

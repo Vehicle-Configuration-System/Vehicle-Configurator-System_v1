@@ -21,14 +21,14 @@ namespace backend_dotnet.Models
         public int ComponentId { get; set; }
 
         [ForeignKey(nameof(ComponentId))]
-        public Component? Component { get; set; }
+        public LoginRequest? Component { get; set; }
 
         // Selected Alternate Component
         [Column("alternate_component_id")]
         public int AlternateComponentId { get; set; }
 
         [ForeignKey(nameof(AlternateComponentId))]
-        public Component? AlternateComponent { get; set; }
+        public LoginRequest? AlternateComponent { get; set; }
 
         [Column("delta_price")]
         public double DeltaPrice { get; set; }

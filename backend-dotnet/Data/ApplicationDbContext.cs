@@ -18,7 +18,7 @@ namespace backend_dotnet.Data
 
         public DbSet<SegMfg> SegMfgs { get; set; }
 
-        public DbSet<Component> Components { get; set; }
+        public DbSet<LoginRequest> Components { get; set; }
 
         public DbSet<VehicleModel> VehicleModels { get; set; }
 

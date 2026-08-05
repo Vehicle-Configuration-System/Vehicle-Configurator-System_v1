@@ -20,13 +20,13 @@ namespace backend_dotnet.Models
         public int CompId { get; set; }
 
         [ForeignKey(nameof(CompId))]
-        public Component? Component { get; set; }
+        public LoginRequest? Component { get; set; }
 
         [Column("alt_comp_id")]
         public int AltCompId { get; set; }
 
         [ForeignKey(nameof(AltCompId))]
-        public Component? AlternateComponentEntity { get; set; }
+        public LoginRequest? AlternateComponentEntity { get; set; }
 
         [Required]
         [Column("delta_price")]
