@@ -27,7 +27,7 @@ const handleConfirmOrder = () => {
 
     };
 
-    fetch("http://localhost:5115/api/invoice/generate", {
+    fetch("http://localhost:3306/api/invoice/generate", {
 
         method: "POST",
 
@@ -70,7 +70,7 @@ const handleConfirmOrder = () => {
         if(modelId){
 
             fetch(
-              `http://localhost:5115/api/default-config/${modelId}`
+              `http://localhost:3306/api/default-config/${modelId}`
             )
             .then(res=>res.json())
             .then(data=>{
@@ -163,7 +163,7 @@ const grandTotal = totalPrice + gst;
         <div className="vehicle-image">
 
             <img
-                src={`http://localhost:5115/${vehicle.image}`}
+                src={`http://localhost:3306/${vehicle.image}`}
                 alt={vehicle.modelName}
                 width="350"
             />
