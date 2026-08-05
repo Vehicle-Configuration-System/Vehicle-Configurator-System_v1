@@ -1,14 +1,16 @@
-﻿using backend_dotnet.Models;
+using backend_dotnet.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend_dotnet.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationDbContext(
+            DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
         }
+
 
         public DbSet<Segment> Segments { get; set; }
 
@@ -33,6 +35,7 @@ namespace backend_dotnet.Data
         public DbSet<InvoiceDetail> InvoiceDetails { get; set; }
 
         public DbSet<User> Users { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

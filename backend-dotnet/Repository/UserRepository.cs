@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using backend_dotnet.Data;
 using backend_dotnet.Models;
 

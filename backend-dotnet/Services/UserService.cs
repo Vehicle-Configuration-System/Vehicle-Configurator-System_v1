@@ -1,4 +1,4 @@
-﻿using backend_dotnet.DTO;
+using backend_dotnet.DTO;
 using backend_dotnet.Models;
 using backend_dotnet.Repository;
 
@@ -16,7 +16,7 @@ namespace backend_dotnet.Services
         // ===========================
         // Register User
         // ===========================
-        public async Task<string> RegisterAsync(RegisterRequestDTO registerDto)
+        public async Task<string> RegisterAsync(RegisterRequestDto registerDto)
         {
             // Check Email
             if (await _userRepository.EmailExistsAsync(registerDto.Email))
@@ -62,17 +62,17 @@ namespace backend_dotnet.Services
         // Not Implemented Yet
         // ===========================
 
-        public Task<LoginResponseDTO> LoginAsync(LoginRequestDTO loginDto)
+        public Task<LoginResponseDto> LoginAsync(LoginRequestDto loginDto)
         {
             throw new NotImplementedException();
         }
 
-        public Task<UserResponseDTO?> GetUserByIdAsync(int userId)
+        public Task<UserResponseDto?> GetUserByIdAsync(int userId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<UserResponseDTO>> GetAllUsersAsync()
+        public Task<IEnumerable<UserResponseDto>> GetAllUsersAsync()
         {
             throw new NotImplementedException();
         }
