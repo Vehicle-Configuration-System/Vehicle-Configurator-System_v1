@@ -10,23 +10,30 @@ namespace backend_dotnet.Models
         [Column("alt_id")]
         public int AltId { get; set; }
 
+
         [Column("model_id")]
         public int ModelId { get; set; }
+
 
         [ForeignKey(nameof(ModelId))]
         public VehicleModel? Model { get; set; }
 
+
         [Column("comp_id")]
         public int CompId { get; set; }
 
+
         [ForeignKey(nameof(CompId))]
-        public LoginRequest? Component { get; set; }
+        public Component? Component { get; set; }
+
 
         [Column("alt_comp_id")]
         public int AltCompId { get; set; }
 
+
         [ForeignKey(nameof(AltCompId))]
-        public LoginRequest? AlternateComponentEntity { get; set; }
+        public Component? AlternateComponentEntity { get; set; }
+
 
         [Required]
         [Column("delta_price")]
