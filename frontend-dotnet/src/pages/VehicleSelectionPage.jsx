@@ -85,7 +85,7 @@ async function loadModels(manufacturerId,segmentId) {
     try {
 
         const response = await fetch(
-    `http://localhost:5115/model/manufacturer/${manufacturerId}/segment/${segmentId}`, {
+    `http://localhost:5115/api/VehicleModel/${manufacturerId}/${segmentId}`, {
     headers: {
         Authorization: `Bearer ${token}`
     }

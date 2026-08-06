@@ -2,7 +2,6 @@ using backend_dotnet.Data;
 using backend_dotnet.Helpers;
 using backend_dotnet.Repository;
 using backend_dotnet.Services;
-using backend_dotnet.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -15,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IVehicleModelService, VehicleModelService>();
 
 
 // Register Database Context
