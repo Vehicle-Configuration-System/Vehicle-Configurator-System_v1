@@ -1,10 +1,12 @@
 ﻿using backend_dotnet.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend_dotnet.Controllers
 {
     [ApiController]
     [Route("api/default-config")]
+    [Authorize]
     public class VehicleDetailController : ControllerBase
     {
         private readonly IVehicleDetailService _vehicleDetailService;

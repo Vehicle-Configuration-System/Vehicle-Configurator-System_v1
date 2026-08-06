@@ -16,6 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddScoped<IVehicleModelService, VehicleModelService>();
 builder.Services.AddScoped<IVehicleDetailService, VehicleDetailService>();
+builder.Services.AddScoped<IConfigurationService, ConfigurationService>();
 
 // Register Database Context
 
