@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function VehicleSelectionPage() {
 const username = sessionStorage.getItem("username");
+const token = sessionStorage.getItem("token");
     const [segments, setSegments] = useState([]);
     const [selectedSegment, setSelectedSegment] = useState("");
     const [quantity, setQuantity] = useState("");
@@ -18,7 +19,11 @@ const username = sessionStorage.getItem("username");
 );
     useEffect(() => {
 
-        fetch("http://localhost:3306/segment")
+        fetch("http://localhost:5115/segment", {
+    headers: {
+        Authorization: `Bearer ${token}`
+    }
+})
             .then((response) => {
 
                 if (!response.ok) {
@@ -48,7 +53,11 @@ async function loadManufacturers(segmentId) {
     try {
 
         const response = await fetch(
-            "http://localhost:5115/manufacturer/segment/" + segmentId
+            "http://localhost:5115/manufacturer/segment/" + segmentId, {
+    headers: {
+        Authorization: `Bearer ${token}`
+    }
+}
         );
 
         if (!response.ok) {
@@ -76,7 +85,11 @@ async function loadModels(manufacturerId,segmentId) {
     try {
 
         const response = await fetch(
-    `http://localhost:5115/model/manufacturer/${manufacturerId}/segment/${segmentId}`
+    `http://localhost:5115/model/manufacturer/${manufacturerId}/segment/${segmentId}`, {
+    headers: {
+        Authorization: `Bearer ${token}`
+    }
+}
         );
 
         if (!response.ok) {
