@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IVehicleModelService, VehicleModelService>();
-
+builder.Services.AddScoped<IVehicleDetailService, VehicleDetailService>();
 
 // Register Database Context
 
@@ -112,10 +112,11 @@ app.UseHttpsRedirection();
 app.UseCors("FrontendPolicy");
 // JWT Middleware
 
+app.UseStaticFiles();
+
 app.UseAuthentication();
 
 app.UseAuthorization();
-
 
 
 app.MapControllers();
