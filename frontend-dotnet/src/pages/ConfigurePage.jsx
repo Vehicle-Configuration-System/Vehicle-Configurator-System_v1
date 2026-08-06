@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 const BASE_URL = "http://localhost:5115";
 
 export default function ConfigurePage() {
+    const token = sessionStorage.getItem("token");
 
     const modelId = sessionStorage.getItem("modelId");
     const [components, setComponents] = useState([]);
@@ -12,164 +13,177 @@ export default function ConfigurePage() {
     const [activeTab, setActiveTab] = useState("standard");
     const quantity = Number(sessionStorage.getItem("quantity"));
     const username = sessionStorage.getItem("username");
-const navigate = useNavigate();
-const [finalPrice, setFinalPrice] = useState(0);
-const formatPrice = (price) =>
-    Number(price).toLocaleString("en-IN");
-useEffect(() => {
+    const navigate = useNavigate();
+    const [finalPrice, setFinalPrice] = useState(0);
+        const loadAlternatives = async (componentId) => {
 
-    fetch(`${BASE_URL}/api/configurations/${modelId}`)
-        .then(res => res.json())
-        .then(data => {
+        const res = await fetch(
+            `${BASE_URL}/api/configurations/${modelId}/components/${componentId}/alternatives`,{
+             
+    headers: {
+        Authorization: `Bearer ${token}`
+    }
+     } );
 
-            setComponents(data);
+        const data = await res.json();
+        console.log("In load alternatives" + JSON.stringify(data, null, 2));
+        console.log("Component :", componentId);
+        console.log("Alternatives :", data);
+        console.log("FIRST ALT =", data[0]);
+        console.log(JSON.stringify(alternatives[3], null, 2));
+        setAlternatives(prev => ({
+            ...prev,
+            [componentId]: data
+        }));
+    }
 
-            data.forEach(component => {
+    const formatPrice = (price) =>
+        Number(price).toLocaleString("en-IN");
+    useEffect(() => {
 
-                if (component.configurable === "Y") {
+        fetch(`${BASE_URL}/api/configurations/${modelId}`, {
+    headers: {
+        Authorization: `Bearer ${token}`
+    }
+    })
+            .then(res => res.json())
+            .then(data => {
 
-                    loadAlternatives(component.componentId);
+                setComponents(data);
 
-                }
+                data.forEach(component => {
+
+                    if (component.configurable === "Y") {
+
+                        loadAlternatives(component.componentId);
+
+                    }
+
+                });
 
             });
 
-        });
-
-    fetch(`${BASE_URL}/api/default-config/${modelId}`)
-        .then(res => res.json())
-        .then(data => {
-
-            setVehicle(data.vehicle);
-setFinalPrice(data.vehicle.basePrice);
-        });
-
-}, []);
-const handleConfirmOrder = () => {
-    console.log("Selected Alternatives =", selectedAlternatives);
-
-    const selectedComponents = [];
-
-    Object.keys(selectedAlternatives).forEach(componentId => {
-
-    const selectedValue = selectedAlternatives[componentId];
-
-    if (selectedValue) {
-
-        const altId = Number(selectedValue);
-
-        const alt = (alternatives[componentId] || []).find(
-    a => a.componentId === altId
-        );
-
-        selectedComponents.push({
-
-            componentId: Number(componentId),
-            alternateComponentId: altId,
-            deltaPrice: alt ? alt.deltaPrice : 0
-
-        });
-
+ fetch(`${BASE_URL}/api/default-config/${modelId}`, {
+    headers: {
+        Authorization: `Bearer ${token}`
     }
-
-});
-console.log(alternatives);
-    const request = {
-
-        userId: Number(sessionStorage.getItem("userId")),
-        modelId: Number(modelId),
-        quantity: quantity,
-        totalAmount: subTotal,
-        tax: gst,
-        finalAmount: grandTotal,
-        selectedComponents: selectedComponents
-
-    };
-    console.log(JSON.stringify(request, null, 2));
-console.log("Invoice Request =", request);
-    fetch("http://localhost:5115/api/invoice/generate", {
-
-        method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify(request)
-
-    })
-   .then(async (res) => {
-
-    console.log("Status =", res.status);
-
-    const data = await res.json();
-
-    console.log("Complete Response =", data);
-
-    if (!res.ok) {
-        throw new Error("Invoice generation failed");
-    }
-
-    navigate("/invoice/" + data.invoiceId);
 })
-.catch(err => console.log(err));
-};
+.then(res => res.json())
+.then(data => {
+    setVehicle(data.vehicle);
+    setFinalPrice(data.vehicle.basePrice);
+});},[]);
+    const handleConfirmOrder = () => {
+        console.log("Selected Alternatives =", selectedAlternatives);
+
+        const selectedComponents = [];
+
+        Object.keys(selectedAlternatives).forEach(componentId => {
+
+            const selectedValue = selectedAlternatives[componentId];
+
+            if (selectedValue) {
+
+                const altId = Number(selectedValue);
+
+                const alt = (alternatives[componentId] || []).find(
+                    a => a.componentId === altId
+                );
+
+                selectedComponents.push({
+
+                    componentId: Number(componentId),
+                    alternateComponentId: altId,
+                    deltaPrice: alt ? alt.deltaPrice : 0
+
+                });
+
+            }
+
+        });
+        console.log(alternatives);
+        const request = {
+
+            userId: Number(sessionStorage.getItem("userId")),
+            modelId: Number(modelId),
+            quantity: quantity,
+            totalAmount: subTotal,
+            tax: gst,
+            finalAmount: grandTotal,
+            selectedComponents: selectedComponents
+
+        };
+        console.log(JSON.stringify(request, null, 2));
+        console.log("Invoice Request =", request);
+        fetch("http://localhost:5115/api/invoice/generate", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json",
+
+                Authorization: `Bearer ${token}`
+
+            },
+
+            body: JSON.stringify(request)
+
+        })
+            .then(async (res) => {
+
+                console.log("Status =", res.status);
+
+                const data = await res.json();
+
+                console.log("Complete Response =", data);
+
+                if (!res.ok) {
+                    throw new Error("Invoice generation failed");
+                }
+
+                navigate("/invoice/" + data.invoiceId);
+            })
+            .catch(err => console.log(err));
+    };
     const core = components.filter(c => c.componentType === "C");
     const standard = components.filter(c => c.componentType === "S");
     const interior = components.filter(c => c.componentType === "I");
     const exterior = components.filter(c => c.componentType === "E");
-const loadAlternatives = async (componentId) => {
 
-    const res = await fetch(
-        `${BASE_URL}/api/configurations/${modelId}/components/${componentId}/alternatives`
-    );
+    if (!vehicle) {
 
-    const data = await res.json();
-console.log("In load alternatives"+JSON.stringify(data,null,2));
-    console.log("Component :", componentId);
-    console.log("Alternatives :", data);
-    console.log("FIRST ALT =", data[0]);
-console.log(JSON.stringify(alternatives[3], null, 2));
-    setAlternatives(prev => ({
-        ...prev,
-        [componentId]: data
-    }));
-}
+        return <h2>Loading...</h2>;
 
-if (!vehicle) {
+    }
+    function calculatePrice(selected) {
 
-    return <h2>Loading...</h2>;
+        let price = vehicle.basePrice;
 
-}
-function calculatePrice(selected) {
+        Object.keys(selected).forEach(componentId => {
 
-    let price = vehicle.basePrice;
+            const altId = Number(selected[componentId]);
 
-    Object.keys(selected).forEach(componentId => {
+            const alt = (alternatives[componentId] || []).find(
+                a => a.componentId === altId
+            );
 
-        const altId = Number(selected[componentId]);
+            if (alt) {
+                price += alt.deltaPrice;
+            }
 
-        const alt = (alternatives[componentId] || []).find(
-            a => a.componentId === altId
-        );
+        });
 
-        if (alt) {
-            price += alt.deltaPrice;
-        }
+        setFinalPrice(price);
+    }
 
-    });
-
-    setFinalPrice(price);
-}
-
-const subTotal = finalPrice * quantity;
-const gst = subTotal * 0.10;
-const grandTotal = subTotal + gst;
+    const subTotal = finalPrice * quantity;
+    const gst = subTotal * 0.10;
+    const grandTotal = subTotal + gst;
     return (
 
         <div className="container mt-4">
-<h5 className="fw-bold">
-                Welcome, {username} Please Configure your vehicle 
+            <h5 className="fw-bold">
+                Welcome, {username} Please Configure your vehicle
             </h5>
 
             <h2>Configure Vehicle</h2>
@@ -177,21 +191,21 @@ const grandTotal = subTotal + gst;
             <hr />
 
 
-<p><strong>Model :</strong> {vehicle.modelName}</p>
+            <p><strong>Model :</strong> {vehicle.modelName}</p>
 
-<p><strong>Manufacturer :</strong> {vehicle.manufacturer}</p>
+            <p><strong>Manufacturer :</strong> {vehicle.manufacturer}</p>
 
-<p><strong>Segment :</strong> {vehicle.segment}</p>
+            <p><strong>Segment :</strong> {vehicle.segment}</p>
 
-<p><strong>Base Price :</strong> ₹{formatPrice(vehicle.basePrice)}</p>
+            <p><strong>Base Price :</strong> ₹{formatPrice(vehicle.basePrice)}</p>
 
-<p><strong>Quantity :</strong> {sessionStorage.getItem("quantity")}</p>
-<img
-    src={`${BASE_URL}/${vehicle.image}`}
-    alt={vehicle.modelName}
-    width="300"
-/>
-<hr />
+            <p><strong>Quantity :</strong> {sessionStorage.getItem("quantity")}</p>
+            <img
+                src={`${BASE_URL}/${vehicle.image}`}
+                alt={vehicle.modelName}
+                width="300"
+            />
+            <hr />
             <h4>Core Components</h4>
 
             <ul>
@@ -205,223 +219,223 @@ const grandTotal = subTotal + gst;
             </ul>
 
 
-<hr/>
-
-{
-    activeTab === "standard" &&
-    standard.map(component => (
-        <div key={component.componentId} style={{ marginBottom: "15px" }}>
-
-            <label style={{ width: "180px" }}>
-                {component.componentName}
-            </label>
+            <hr />
 
             {
-                component.configurable === "Y" ? (
+                activeTab === "standard" &&
+                standard.map(component => (
+                    <div key={component.componentId} style={{ marginBottom: "15px" }}>
 
-                    <select
-                        value={selectedAlternatives[component.componentId] || ""}
-                       onChange={(e) => {
+                        <label style={{ width: "180px" }}>
+                            {component.componentName}
+                        </label>
 
-    const updated = {
+                        {
+                            component.configurable === "Y" ? (
 
-        ...selectedAlternatives,
-        [component.componentId]: e.target.value
+                                <select
+                                    value={selectedAlternatives[component.componentId] || ""}
+                                    onChange={(e) => {
 
-    };
+                                        const updated = {
 
-    setSelectedAlternatives(updated);
+                                            ...selectedAlternatives,
+                                            [component.componentId]: e.target.value
 
-    calculatePrice(updated);
+                                        };
 
-}}
-                    >
-                        <option value="">Default</option>
+                                        setSelectedAlternatives(updated);
 
-                        {(alternatives[component.componentId] || []).map(alt => (
+                                        calculatePrice(updated);
 
-                            <option
-                                key={alt.altId}
-                                value={alt.componentId}
-                            >
-                                {alt.componentName}
-                            </option>
+                                    }}
+                                >
+                                    <option value="">Default</option>
 
-                        ))}
+                                    {(alternatives[component.componentId] || []).map(alt => (
 
-                    </select>
+                                        <option
+                                            key={alt.altId}
+                                            value={alt.componentId}
+                                        >
+                                            {alt.componentName}
+                                        </option>
 
-                ) : (
+                                    ))}
 
-                    <span>Standard</span>
+                                </select>
 
-                )
+                            ) : (
+
+                                <span>Standard</span>
+
+                            )
+                        }
+
+                    </div>
+                ))
             }
-
-        </div>
-    ))
-}
-
-{
-    activeTab === "interior" &&
-    interior.map(component => (
-        <div key={component.componentId} style={{ marginBottom: "15px" }}>
-
-            <label style={{ width: "180px" }}>
-                {component.componentName}
-            </label>
 
             {
-                component.configurable === "Y" ? (
+                activeTab === "interior" &&
+                interior.map(component => (
+                    <div key={component.componentId} style={{ marginBottom: "15px" }}>
 
-                    <select
-                        value={selectedAlternatives[component.componentId] || ""}
-                  onChange={(e) => {
+                        <label style={{ width: "180px" }}>
+                            {component.componentName}
+                        </label>
 
-    const updated = {
+                        {
+                            component.configurable === "Y" ? (
 
-        ...selectedAlternatives,
-        [component.componentId]: e.target.value
+                                <select
+                                    value={selectedAlternatives[component.componentId] || ""}
+                                    onChange={(e) => {
 
-    };
+                                        const updated = {
 
-    setSelectedAlternatives(updated);
+                                            ...selectedAlternatives,
+                                            [component.componentId]: e.target.value
 
-    calculatePrice(updated);
+                                        };
 
-}}
-                    >
-                        <option value="">Default</option>
+                                        setSelectedAlternatives(updated);
 
-                        {(alternatives[component.componentId] || []).map(alt => (
+                                        calculatePrice(updated);
 
-                            <option
-                                key={alt.altId}
-                                value={alt.componentId}
-                            >
-                                {alt.componentName}
-                            </option>
+                                    }}
+                                >
+                                    <option value="">Default</option>
 
-                        ))}
+                                    {(alternatives[component.componentId] || []).map(alt => (
 
-                    </select>
+                                        <option
+                                            key={alt.altId}
+                                            value={alt.componentId}
+                                        >
+                                            {alt.componentName}
+                                        </option>
 
-                ) : (
+                                    ))}
 
-                    <span>Standard</span>
+                                </select>
 
-                )
+                            ) : (
+
+                                <span>Standard</span>
+
+                            )
+                        }
+
+                    </div>
+                ))
             }
-
-        </div>
-    ))
-}
-
-{
-    activeTab === "exterior" &&
-    exterior.map(component => (
-        <div key={component.componentId} style={{ marginBottom: "15px" }}>
-
-            <label style={{ width: "180px" }}>
-                {component.componentName}
-            </label>
 
             {
-                component.configurable === "Y" ? (
+                activeTab === "exterior" &&
+                exterior.map(component => (
+                    <div key={component.componentId} style={{ marginBottom: "15px" }}>
 
-                    <select
-                        value={selectedAlternatives[component.componentId] || ""}
-                   onChange={(e) => {
+                        <label style={{ width: "180px" }}>
+                            {component.componentName}
+                        </label>
 
-    const updated = {
+                        {
+                            component.configurable === "Y" ? (
 
-        ...selectedAlternatives,
-        [component.componentId]: e.target.value
+                                <select
+                                    value={selectedAlternatives[component.componentId] || ""}
+                                    onChange={(e) => {
 
-    };
+                                        const updated = {
 
-    setSelectedAlternatives(updated);
+                                            ...selectedAlternatives,
+                                            [component.componentId]: e.target.value
 
-    calculatePrice(updated);
+                                        };
 
-}}
-                    >
-                        <option value="">Default</option>
+                                        setSelectedAlternatives(updated);
 
-                        {(alternatives[component.componentId] || []).map(alt => (
+                                        calculatePrice(updated);
 
-                            <option
-                                key={alt.altId}
-                                value={alt.componentId}
-                            >
-                                {alt.componentName}
-                            </option>
+                                    }}
+                                >
+                                    <option value="">Default</option>
 
-                        ))}
+                                    {(alternatives[component.componentId] || []).map(alt => (
 
-                    </select>
+                                        <option
+                                            key={alt.altId}
+                                            value={alt.componentId}
+                                        >
+                                            {alt.componentName}
+                                        </option>
 
-                ) : (
+                                    ))}
 
-                    <span>Standard</span>
+                                </select>
 
-                )
+                            ) : (
+
+                                <span>Standard</span>
+
+                            )
+                        }
+
+                    </div>
+                ))
             }
 
-        </div>
-    ))
-}
+            <div className="mt-4">
 
-<div className="mt-4">
+                <button
+                    className="btn btn-primary me-2"
+                    onClick={() => setActiveTab("standard")}
+                >
+                    Std. Features
+                </button>
 
-    <button
-        className="btn btn-primary me-2"
-        onClick={() => setActiveTab("standard")}
-    >
-        Std. Features
-    </button>
+                <button
+                    className="btn btn-secondary me-2"
+                    onClick={() => setActiveTab("interior")}
+                >
+                    Interior
+                </button>
 
-    <button
-        className="btn btn-secondary me-2"
-        onClick={() => setActiveTab("interior")}
-    >
-        Interior
-    </button>
+                <button
+                    className="btn btn-secondary me-2"
+                    onClick={() => setActiveTab("exterior")}
+                >
+                    Exterior
+                </button>
 
-    <button
-        className="btn btn-secondary me-2"
-        onClick={() => setActiveTab("exterior")}
-    >
-        Exterior
-    </button>
+                <button
+                    className="btn btn-success"
+                    onClick={handleConfirmOrder}
+                >
+                    Confirm Order
+                </button>
 
-    <button
-        className="btn btn-success"
-        onClick={handleConfirmOrder}
->
-        Confirm Order
-    </button>
+            </div>
 
-</div>
+            <hr />
+            <h4>Price Summary</h4>
 
-<hr/>
-<h4>Price Summary</h4>
+            <p>
+                <strong>Configured Vehicle Price :</strong> ₹{formatPrice(finalPrice)}
+            </p>
 
-<p>
-    <strong>Configured Vehicle Price :</strong> ₹{formatPrice(finalPrice)}
-</p>
+            <p>
+                <strong>Subtotal ({quantity} Qty) :</strong> ₹{formatPrice(subTotal)}
+            </p>
 
-<p>
-    <strong>Subtotal ({quantity} Qty) :</strong> ₹{formatPrice(subTotal)}
-</p>
+            <p>
+                <strong>GST (10%) :</strong> ₹{formatPrice(gst)}
+            </p>
 
-<p>
-    <strong>GST (10%) :</strong> ₹{formatPrice(gst)}
-</p>
-
-<h3>
-    Grand Total : ₹{formatPrice(grandTotal)}
-</h3>
+            <h3>
+                Grand Total : ₹{formatPrice(grandTotal)}
+            </h3>
         </div>
 
     );

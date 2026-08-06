@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 function DefaultConfigurationPage() {
     const navigate = useNavigate();
+    const token = sessionStorage.getItem("token");
 
     const modelId = sessionStorage.getItem("modelId");
     const quantity = sessionStorage.getItem("quantity");
