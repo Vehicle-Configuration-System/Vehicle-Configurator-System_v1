@@ -29,13 +29,13 @@ function ModelPage() {
 
         loadModels();
 
-    }, []);
+    }, [manufacturerId, selectedSegment]);
 
     const loadModels = async () => {
 
         try {
 
-            const data = await getModelsByManufacturer(manufacturerId);
+            const data = await getModelsByManufacturer(manufacturerId, selectedSegment.segId);
 
             setModels(data);
 
