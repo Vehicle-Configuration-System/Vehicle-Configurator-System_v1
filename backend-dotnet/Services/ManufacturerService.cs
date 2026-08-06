@@ -3,7 +3,7 @@ using backend_dotnet.Repository;
 
 namespace backend_dotnet.Services
 {
-    public class ManufacturerService
+    public class ManufacturerService:IManufacturerService
     {
 
         private readonly IManufacturerRepository manufacturerRepository;

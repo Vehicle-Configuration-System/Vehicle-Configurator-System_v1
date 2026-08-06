@@ -19,7 +19,7 @@ namespace backend_dotnet.DTO
         public string RegistrationNo { get; set; } = string.Empty;
 
         public string StNo { get; set; } = string.Empty;
-
+        
         public string VatNo { get; set; } = string.Empty;
 
         public string TaxNo { get; set; } = string.Empty;

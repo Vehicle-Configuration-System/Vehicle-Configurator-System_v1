@@ -29,5 +29,18 @@ namespace backend_dotnet.Controllers
 
             return BadRequest(message);
         }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequestDto dto)
+        {
+            var response = await _userService.LoginAsync(dto);
+
+            if (!response.Success)
+            {
+                return Unauthorized(response);
+            }
+
+            return Ok(response);
+        }
     }
 }

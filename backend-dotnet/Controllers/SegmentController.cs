@@ -1,11 +1,14 @@
 ﻿using backend_dotnet.Models;
 using backend_dotnet.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend_dotnet.Controllers
 {
+    [Authorize]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("segment")]
+
     public class SegmentController:ControllerBase
     {
         private readonly ISegmentService _segmentService;

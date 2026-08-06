@@ -1,4 +1,5 @@
 using backend_dotnet.DTO;
+using backend_dotnet.Helpers;
 using backend_dotnet.Models;
 using backend_dotnet.Repository;
 
@@ -7,12 +8,18 @@ namespace backend_dotnet.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly PasswordHasher _passwordHasher;
+        private readonly IJwtService _jwtService;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(
+            IUserRepository userRepository,
+            PasswordHasher passwordHasher,
+            IJwtService jwtService)
         {
             _userRepository = userRepository;
+            _passwordHasher = passwordHasher;
+            _jwtService = jwtService;
         }
-
         // ===========================
         // Register User
         // ===========================
@@ -44,12 +51,7 @@ namespace backend_dotnet.Services
                 VatNo = registerDto.VatNo,
                 TaxNo = registerDto.TaxNo,
                 Designation = registerDto.Designation,
-
-                // NOTE:
-                // For testing only.
-                // Replace with password hashing before implementing login.
-                Password = registerDto.Password,
-
+                Password = _passwordHasher.HashPassword(registerDto.Password),
                 Role = "ROLE_USER"
             };
 
@@ -62,9 +64,51 @@ namespace backend_dotnet.Services
         // Not Implemented Yet
         // ===========================
 
-        public Task<LoginResponseDto> LoginAsync(LoginRequestDto loginDto)
+        public async Task<LoginResponseDto> LoginAsync(LoginRequestDto loginDto)
         {
-            throw new NotImplementedException();
+            // Find user by email
+            var user = await _userRepository.GetUserByEmailAsync(loginDto.Email);
+
+            if (user == null)
+            {
+                return new LoginResponseDto
+                {
+                    Success = false,
+                    Message = "Invalid Email"
+                };
+            }
+
+            // Verify password
+            bool isPasswordValid =
+                _passwordHasher.VerifyPassword(
+                    loginDto.Password,
+                    user.Password);
+
+            if (!isPasswordValid)
+            {
+                return new LoginResponseDto
+                {
+                    Success = false,
+                    Message = "Invalid Password"
+                };
+            }
+
+            // Generate JWT Token
+            string token = _jwtService.GenerateToken(user);
+
+            // Return Response
+            return new LoginResponseDto
+            {
+                Success = true,
+                Message = "Login Successful",
+
+                Token = token,
+
+                UserId = user.UserId,
+                Username = user.Username,
+                Email = user.Email,
+                Role = user.Role
+            };
         }
 
         public Task<UserResponseDto?> GetUserByIdAsync(int userId)
