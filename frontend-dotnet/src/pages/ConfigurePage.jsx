@@ -101,6 +101,11 @@ export default function ConfigurePage() {
             }
 
         });
+        console.log("SELECTED COMPONENTS =", selectedComponents);
+console.log(
+    "SELECTED COMPONENTS JSON =",
+    JSON.stringify(selectedComponents, null, 2)
+);
         console.log(alternatives);
         const request = {
 
@@ -135,7 +140,9 @@ export default function ConfigurePage() {
 
                 const data = await res.json();
 
-                console.log("Complete Response =", data);
+                console.log("STATUS =", res.status);
+
+                //console.log("Complete Response =", data);
 
                 if (!res.ok) {
                     throw new Error("Invoice generation failed");
@@ -243,7 +250,9 @@ export default function ConfigurePage() {
                                             [component.componentId]: e.target.value
 
                                         };
-
+ console.log("SELECTED COMPONENT:", component.componentName);
+    console.log("SELECTED VALUE:", e.target.value);
+    console.log("UPDATED:", updated);
                                         setSelectedAlternatives(updated);
 
                                         calculatePrice(updated);
@@ -298,7 +307,9 @@ export default function ConfigurePage() {
                                             [component.componentId]: e.target.value
 
                                         };
-
+ console.log("SELECTED COMPONENT:", component.componentName);
+    console.log("SELECTED VALUE:", e.target.value);
+    console.log("UPDATED:", updated);
                                         setSelectedAlternatives(updated);
 
                                         calculatePrice(updated);
@@ -353,7 +364,9 @@ export default function ConfigurePage() {
                                             [component.componentId]: e.target.value
 
                                         };
-
+ console.log("SELECTED COMPONENT:", component.componentName);
+    console.log("SELECTED VALUE:", e.target.value);
+    console.log("UPDATED:", updated);
                                         setSelectedAlternatives(updated);
 
                                         calculatePrice(updated);

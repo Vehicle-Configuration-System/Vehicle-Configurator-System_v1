@@ -1,250 +1,253 @@
-import { getDefaultConfig } from "../services/defaultConfigService";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-function DefaultConfigurationPage() {
-    const navigate = useNavigate();
-    const token = sessionStorage.getItem("token");
+function DefaultConfigurationPage(){
+const navigate = useNavigate();
+const token = sessionStorage.getItem("token");
 
     const modelId = sessionStorage.getItem("modelId");
     const quantity = sessionStorage.getItem("quantity");
     const username = sessionStorage.getItem("username");
 
-    const [configuration, setConfiguration] = useState(null);
-    const formatPrice = (price) =>
-        Number(price).toLocaleString("en-IN");
-    const handleConfirmOrder = () => {
+const [configuration, setConfiguration] = useState(null);
+const formatPrice = (price) =>
+    Number(price).toLocaleString("en-IN");
+const handleConfirmOrder = () => {
 
-        const request = {
+    const request = {
 
-            userId: Number(sessionStorage.getItem("userId")),
-            modelId: Number(modelId),
-            quantity: qty,
-            totalAmount: totalPrice,
-            tax: gst,
-            finalAmount: grandTotal,
+        userId: Number(sessionStorage.getItem("userId")),
+        modelId: Number(modelId),
+        quantity: qty,
+        totalAmount: totalPrice,
+        tax: gst,
+        finalAmount: grandTotal,
 
-            // Default configuration hai, isliye koi alternate component nahi
-            selectedComponents: []
-
-        };
-
-        fetch("http://localhost:3306/api/invoice/generate", {
-
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify(request)
-
-        })
-            .then(res => {
-
-                if (!res.ok) {
-
-                    throw new Error("Failed to generate invoice");
-
-                }
-
-                return res.json();
-
-            })
-            .then(data => {
-
-                alert("Invoice Generated Successfully");
-
-                //console.log(data);
-                navigate(`/invoice/${data.invoiceId}`);
-
-            })
-            .catch(err => {
-
-                alert(err.message);
-
-            });
+        // Default configuration hai, isliye koi alternate component nahi
+        selectedComponents: []
 
     };
-    useEffect(() => {
+
+    fetch("http://localhost:5115/api/invoice/generate", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json",
+             "Authorization": `Bearer ${token}`
+        },
+
+        body: JSON.stringify(request)
+
+    })
+    .then(res => {
+
+        if (!res.ok) {
+
+            throw new Error("Failed to generate invoice");
+
+        }
+
+        return res.json();
+
+    })
+    .then(data => {
+
+        alert("Invoice Generated Successfully");
+
+        //console.log(data);
+ navigate(`/invoice/${data.invoiceId}`);
+       
+    })
+    .catch(err => {
+
+        alert(err.message);
+
+    });
+
+};
+    useEffect(()=>{
 
 
-        if (modelId) {
+        if(modelId){
 
-            getDefaultConfig(modelId)
-                .then(data => {
+            fetch(
+    `http://localhost:5115/api/default-config/${modelId}`,
+    {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    }
+)
+            .then(res=>res.json())
+            .then(data=>{
 
-                    setConfiguration(data);
+                setConfiguration(data);
 
-                })
-                .catch(err => {
-
-                    console.error(err);
-
-                });
+            });
 
         }
 
 
-    }, [modelId]);
+    },[modelId]);
 
 
-    if (!configuration) {
-        return <h2>Loading...</h2>;
-    }
+if (!configuration) {
+    return <h2>Loading...</h2>;
+}
 
-    const vehicle = configuration.vehicle;
+const vehicle = configuration.vehicle;
 
-    const standard = configuration.components.filter(
-        item => item.componentType === "C" || item.componentType === "S"
-    );
+const standard = configuration.components.filter(
+    item => item.componentType === "C" || item.componentType === "S"
+);
 
-    const interior = configuration.components.filter(
-        item => item.componentType === "I"
-    );
+const interior = configuration.components.filter(
+    item => item.componentType === "I"
+);
 
-    const exterior = configuration.components.filter(
-        item => item.componentType === "E"
-    );
+const exterior = configuration.components.filter(
+    item => item.componentType === "E"
+);
 
     // Taking vehicle details from first record
-    const basePrice = vehicle.basePrice;
+const basePrice = vehicle.basePrice;
 
-    const qty = Number(quantity);
+const qty = Number(quantity);
 
-    const totalPrice = basePrice * qty;
+const totalPrice = basePrice * qty;
 
-    const gst = totalPrice * 0.10;
+const gst = totalPrice * 0.10;
 
-    const grandTotal = totalPrice + gst;
-    return (
+const grandTotal = totalPrice + gst;
+  return (
 
-        <div className="container">
-            <h5 className="fw-bold">
-                Welcome, {username} Please Configure your vehicle
+<div className="container">
+    <h5 className="fw-bold">
+                Welcome, {username} Please Configure your vehicle 
             </h5>
 
+  
 
+    <div className="vehicle-container">
 
-            <div className="vehicle-container">
+        <div className="vehicle-info">
 
-                <div className="vehicle-info">
+            <h2>{vehicle.modelName}</h2>
 
-                    <h2>{vehicle.modelName}</h2>
+            <p>
+                <strong>Manufacturer :</strong>{" "}
+                {vehicle.manufacturer}
+            </p>
 
-                    <p>
-                        <strong>Manufacturer :</strong>{" "}
-                        {vehicle.manufacturer}
-                    </p>
+            <p>
+                <strong>Segment :</strong>{" "}
+                {vehicle.segment}
+            </p>
 
-                    <p>
-                        <strong>Segment :</strong>{" "}
-                        {vehicle.segment}
-                    </p>
+            <p>
+                <strong>Base Price :</strong>{" "}
+                ₹{formatPrice(vehicle.basePrice)}
+            </p>
 
-                    <p>
-                        <strong>Base Price :</strong>{" "}
-                        ₹{formatPrice(vehicle.basePrice)}
-                    </p>
+            <p>
+                <strong>Quantity :</strong>{" "}
+                {quantity}
+            </p>
+<p>
+    <strong>Total Price :</strong> ₹{formatPrice(totalPrice)}
+</p>
 
-                    <p>
-                        <strong>Quantity :</strong>{" "}
-                        {quantity}
-                    </p>
-                    <p>
-                        <strong>Total Price :</strong> ₹{formatPrice(totalPrice)}
-                    </p>
+<p>
+    <strong>GST (10%) :</strong> ₹{formatPrice(gst)}
+</p>
 
-                    <p>
-                        <strong>GST (10%) :</strong> ₹{formatPrice(gst)}
-                    </p>
+<h4>
+    Grand Total : ₹{formatPrice(grandTotal)}
+</h4>
+        </div>
 
-                    <h4>
-                        Grand Total : ₹{formatPrice(grandTotal)}
-                    </h4>
-                </div>
+        <div className="vehicle-image">
 
-                <div className="vehicle-image">
-
-                    <img
-                        src={`http://localhost:5115/${vehicle.image}`}
-                        alt={vehicle.modelName}
-                        width="350"
-                    />
-
-                </div>
-
-            </div>
-
-            <hr />
-
-            <h2>Standard Features</h2>
-
-            {
-                standard.map(item => (
-
-                    <div key={item.configId}>
-
-                        {item.componentName}
-
-                    </div>
-
-                ))
-            }
-
-            <hr />
-
-            <h2>Interior Features</h2>
-
-            {
-                interior.map(item => (
-
-                    <div key={item.configId}>
-
-                        {item.componentName}
-
-                    </div>
-
-                ))
-            }
-
-            <hr />
-
-            <h2>Exterior Features</h2>
-
-            {
-                exterior.map(item => (
-
-                    <div key={item.configId}>
-
-                        {item.componentName}
-
-                    </div>
-
-                ))
-            }
-
-            <div className="text-center mt-4">
-
-                <button
-                    className="btn btn-primary me-3"
-                    onClick={() => navigate("/configure")}
-                >
-                    Configure
-                </button>
-
-                <button
-                    className="btn btn-success"
-                    onClick={handleConfirmOrder}
-                >
-                    Confirm Order
-                </button>
-
-            </div>
+            <img
+                src={`http://localhost:5115/${vehicle.image}`}
+                alt={vehicle.modelName}
+                width="350"
+            />
 
         </div>
 
-    );
+    </div>
+
+    <hr/>
+
+    <h2>Standard Features</h2>
+
+    {
+        standard.map(item => (
+
+            <div key={item.configId}>
+
+                {item.componentName}
+
+            </div>
+
+        ))
+    }
+
+    <hr/>
+
+    <h2>Interior Features</h2>
+
+    {
+        interior.map(item => (
+
+            <div key={item.configId}>
+
+                {item.componentName}
+
+            </div>
+
+        ))
+    }
+
+    <hr/>
+
+    <h2>Exterior Features</h2>
+
+    {
+        exterior.map(item => (
+
+            <div key={item.configId}>
+
+                {item.componentName}
+
+            </div>
+
+        ))
+    }
+
+   <div className="text-center mt-4">
+
+    <button
+        className="btn btn-primary me-3"
+        onClick={() => navigate("/configure")}
+    >
+        Configure
+    </button>
+
+    <button
+        className="btn btn-success"
+        onClick={handleConfirmOrder}
+    >
+        Confirm Order
+    </button>
+
+</div>
+
+</div>
+
+);
 }
 
 

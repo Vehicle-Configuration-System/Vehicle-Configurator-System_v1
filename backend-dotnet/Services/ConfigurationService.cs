@@ -1,4 +1,5 @@
-﻿using backend_dotnet.Data;
+﻿
+using backend_dotnet.Data;
 using backend_dotnet.DTO;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,38 +16,34 @@ namespace backend_dotnet.Services
 
         public async Task<List<ConfigurationResponseDTO>> GetConfigurationAsync(int modelId)
         {
-            var vehicleDetails = await _context.VehicleDetails
-                .Include(v => v.Component)
+            return await _context.VehicleDetails
                 .Where(v => v.ModelId == modelId)
-                .ToListAsync();
-
-            return vehicleDetails.Select(detail =>
-                new ConfigurationResponseDTO
+                .Select(v => new ConfigurationResponseDTO
                 {
-                    ComponentId = detail.Component!.CompId,
-                    ComponentName = detail.Component.CompName,
-                    ComponentType = detail.CompType,
-                    Configurable = detail.IsConfigurable
-                }
-                ).ToList();
+                    ComponentId = v.CompId,
+                    ComponentName = v.Component.CompName,
+                    ComponentType = v.CompType,
+                    Configurable = v.IsConfigurable
+                })
+                .ToListAsync();
         }
 
-        public async Task<List<AlternateComponentDTO>> GetAlternateComponentsAsync(int modelId, int componentId)
+        public async Task<List<AlternateComponentDTO>> GetAlternateComponentsAsync(
+            int modelId,
+            int componentId)
         {
-            var list = await _context.AlternateComponents
-                .Include(a => a.AlternateComponentEntity)
-                .Where(a => a.ModelId == modelId && a.CompId == componentId)
-                .ToListAsync();
-
-            return list.Select(alt => 
-                new AlternateComponentDTO
+            return await _context.AlternateComponents
+                .Where(a =>
+                    a.ModelId == modelId &&
+                    a.CompId == componentId)
+                .Select(a => new AlternateComponentDTO
                 {
-                    AltId = alt.AltId,
-                    ComponentId = alt.AlternateComponentEntity!.CompId,
-                    ComponentName = alt.AlternateComponentEntity.CompName,
-                    DeltaPrice = alt.DeltaPrice
-                }
-                ).ToList();
+                    AltId = a.AltId,
+                    ComponentId = a.AlternateComponentEntity.CompId,
+                    ComponentName = a.AlternateComponentEntity.CompName,
+                    DeltaPrice = a.DeltaPrice
+                })
+                .ToListAsync();
         }
     }
 }

@@ -1,5 +1,6 @@
 using backend_dotnet.Data;
 using backend_dotnet.Helpers;
+using backend_dotnet.Repositories;
 using backend_dotnet.Repository;
 using backend_dotnet.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -14,6 +15,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddHttpClient<IEmailService, EmailService>(client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5032/");
+});
 builder.Services.AddScoped<IVehicleModelService, VehicleModelService>();
 builder.Services.AddScoped<IVehicleDetailService, VehicleDetailService>();
 builder.Services.AddScoped<IConfigurationService, ConfigurationService>();
@@ -55,7 +60,14 @@ builder.Services.AddScoped<ISegmentRepository, SegmentRepository>();
 
 builder.Services.AddScoped<IManufacturerService, ManufacturerService>();
 builder.Services.AddScoped<IManufacturerRepository, ManufacturerRepository>();
+builder.Services.AddScoped<IVehicleDetailRepository, VehicleDetailRepository>();
+builder.Services.AddScoped<IVehicleModelRepository, VehicleModelRepository>();
+builder.Services.AddScoped<IAlternateComponentRepository, AlternateComponentRepository>();
+builder.Services.AddScoped<IComponentRepository, ComponentRepository>();
 
+builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+builder.Services.AddScoped<IInvoiceDetailRepository, InvoiceDetailRepository>();
+builder.Services.AddScoped<IInvoiceService, InvoiceService>();
 // ===============================
 // JWT Authentication
 // ===============================
