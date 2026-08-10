@@ -30,5 +30,8 @@ namespace backend_dotnet.Repository
 
         // Get All Users
         Task<IEnumerable<User>> GetAllUsersAsync();
+
+        User? GetById(int userId);
+
     }
 }

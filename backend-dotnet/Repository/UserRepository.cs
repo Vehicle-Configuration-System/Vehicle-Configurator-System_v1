@@ -83,5 +83,13 @@ namespace backend_dotnet.Repository
                 .OrderBy(u => u.UserId)
                 .ToListAsync();
         }
+
+        
+public User? GetById(int userId)
+        {
+            return _context.Users
+                .FirstOrDefault(u => u.UserId == userId);
+        }
+
     }
 }

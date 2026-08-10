@@ -1,15 +1,27 @@
-const API_URL = "http://localhost:5115/api/default-config";
-
 export const getDefaultConfig = async (modelId) => {
 
-    const response = await fetch(`${API_URL}/${modelId}`);
+    const token = sessionStorage.getItem("token");
+
+    const response = await fetch(
+        `http://localhost:5115/api/configurations/${modelId}`,
+        {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        }
+    );
+
+    console.log("Status:", response.status);
+    console.log("Status Text:", response.statusText);
 
     if (!response.ok) {
+        const errorText = await response.text();
+        console.log("Backend Error:", errorText);
 
-        throw new Error("Failed to load default configuration");
-
+        throw new Error(
+            `Failed to load default configuration: ${response.status}`
+        );
     }
 
-    return await response.json();
-
+    return response.json();
 };

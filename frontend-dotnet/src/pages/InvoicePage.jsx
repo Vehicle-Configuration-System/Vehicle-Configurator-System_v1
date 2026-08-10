@@ -7,6 +7,7 @@ function InvoicePage() {
     const { invoiceId } = useParams();
 
     const navigate = useNavigate();
+    const token = sessionStorage.getItem("token");
 
     const [invoice, setInvoice] = useState(null);
 
@@ -27,7 +28,14 @@ const handleSendEmail = () => {
 }
     useEffect(() => {
 
-        fetch("http://localhost:5115/api/invoice/" + invoiceId)
+       fetch(`http://localhost:5115/api/invoice/${invoiceId}`,
+         { 
+            headers: 
+            { 
+            //"Authorization": `Bearer ${token}`,
+             "Content-Type": "application/json" 
+            } 
+        })
 
             .then((response) => {
 
@@ -44,8 +52,9 @@ const handleSendEmail = () => {
             .then((data) => {
 
                 console.log(data);
-
-                setInvoice(data);
+console.log("INVOICE ID:", invoiceId);
+console.log("INVOICE RESPONSE:", data);
+console.log("INVOICE COMPONENTS:", data.components);                setInvoice(data);
 
                 setLoading(false);
 
@@ -124,6 +133,7 @@ const canvas = await html2canvas(input, {
         "http://localhost:5115/api/email/send",
         {
             method: "POST",
+            //"Authorization": `Bearer ${token}`,
             body: formData
         }
     );
