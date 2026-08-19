@@ -1,0 +1,137 @@
+.config-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px 100px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1f2933;
+}
+
+.config-page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.config-page-status {
+  text-align: center;
+  padding: 60px 16px;
+  font-size: 16px;
+  color: #52606d;
+}
+
+.config-page-error {
+  color: #c0392b;
+  font-weight: 500;
+}
+
+.config-category {
+  margin-bottom: 32px;
+}
+
+.config-category-title {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #3e4c59;
+  border-bottom: 2px solid #e4e7eb;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.config-component-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.config-component-card {
+  border: 1px solid #e4e7eb;
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.config-component-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.config-component-name {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.config-component-price {
+  font-weight: 600;
+  color: #1a73e8;
+  white-space: nowrap;
+}
+
+.config-component-selected {
+  font-weight: 400;
+  color: #0f9d58;
+  font-size: 13px;
+}
+
+.config-component-body {
+  margin-top: 10px;
+}
+
+.config-btn {
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.config-btn:hover {
+  background: #1558b0;
+}
+
+.config-alternatives {
+  margin-top: 10px;
+}
+
+.config-select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd2d9;
+  font-size: 14px;
+  background: #fff;
+}
+
+.config-muted {
+  color: #7b8794;
+  font-size: 13px;
+  margin: 6px 0;
+}
+
+.config-total-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1f2933;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.config-total-price {
+  color: #4fd1c5;
+  font-size: 20px;
+}
