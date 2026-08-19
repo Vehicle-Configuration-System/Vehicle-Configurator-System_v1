@@ -2,7 +2,7 @@
 
 namespace backend_dotnet.DTO
 {
-    public class LoginRequestDto
+    public class LoginRequestDTO
     {
         [Required(ErrorMessage = "Email is required")]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]

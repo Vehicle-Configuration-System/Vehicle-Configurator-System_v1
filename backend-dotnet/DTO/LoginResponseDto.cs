@@ -1,6 +1,6 @@
 ﻿namespace backend_dotnet.DTO
 {
-    public class LoginResponseDto
+    public class LoginResponseDTO
     {
         public bool Success { get; set; }
 

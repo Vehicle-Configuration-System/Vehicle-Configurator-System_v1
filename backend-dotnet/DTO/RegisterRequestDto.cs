@@ -2,7 +2,7 @@
 
 namespace backend_dotnet.DTO
 {
-    public class RegisterRequestDto
+    public class RegisterRequestDTO
     {
         [Required(ErrorMessage = "Company Name is required")]
         [StringLength(100)]
